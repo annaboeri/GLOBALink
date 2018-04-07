@@ -6,7 +6,7 @@ const
 
 usersRouter.route('/')
     .get(usersCtrl.index)
-    .post(userCtrl.create)
+    .post(usersCtrl.create)
 
 usersRouter.post('/authenticate', usersCtrl.authenticate)
 

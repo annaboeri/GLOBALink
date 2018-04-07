@@ -3,24 +3,29 @@ const
     signToken = require('../serverAuth.js').signToken
 
 module.exports = {
+    // list all users
     index: (req, res) => {
         User.find({}, (err, users) => {
             res.json(users)
         })
     },
+    // get one user
     show: (req, res) => {
         User.findById(req.params.id, (err, user) => {
             res.json(user)
         })
 
     },
+    // create new user
     create: (req, res) => {
         User.create(req.body, (err, user) => {
             if(err) return res.json({ success: false, code: err.code })
+            // once user is created, generate a token to "log in":
             const token = signToken(user)
             res.json({ success: true, message: "User created. Token attached.", token})
         })
     },
+    // update an existing user
     update: (req, res) => {
         User.findById(req.params.id, (err, user) => {
             Object.assign(user, req.body)
@@ -29,14 +34,17 @@ module.exports = {
             })
         })
     },
+    // delete an existing user
     destroy: (req, res) => {
         User.findByIdAndRemove(req.params.id, (err, user) => {
             res.json({ success: true, message: "User deleted.", user})
         })
     },
+    // the login route
     authenticate: (req, res) => {
         User.findOne({email: req.body.email}, (err, user) => {
             if(!user || !user.validPassword(req.body.password)) {
+                // if there's no user or password is invalid, deny access
                 return res.json({ success: false, message: "Invalid credentials"})
             }
             const token = signToken(user)
