@@ -12,6 +12,13 @@ mongoose.connect(MONGODB_URI, (err) => {
     console.log(err || 'Connected to MongoDB')
 })
 
+app.use(logger('dev'))
+app.use(bodyParser.json())
+
+app.get('/api', (req, res) => {
+    res.json({message: "API Root"})
+})
+
 app.listen(PORT, (err) => {
     console.log(err || `Server running on port ${PORT}`)
 })
