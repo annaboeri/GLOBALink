@@ -53,7 +53,7 @@ class App extends React.Component {
 
 					<Route path="/profile" render={(props) => {
 						return currentUser
-						? <Profile />
+						? <Profile user={currentUser} />
 						: <Redirect to="/login" />
 					}} />
 					

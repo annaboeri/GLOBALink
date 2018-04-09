@@ -1,20 +1,33 @@
 import React from 'react'
-import axios from 'axios'
-
-const httpClient = axios.create()
+import httpClient from '../httpClient'
 
 class Weather extends React.Component{
-componentWillMount(){
-        httpClient({ method: 'get', url: `http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=${this.props.api_key}&units=imperial`}).then((apiResponse) => {
-                console.log(apiResponse)
+
+    state = {
+        cityWeather: "",
+        cityTemp: "",
+        cityHumidity: ""
+    }
+
+    componentWillMount(){
+        httpClient.getWeather(this.props.randomCity.city).then((serverResponse) => {
+            console.log(serverResponse.data)
+            console.log(serverResponse.data.weather[0].main)
+            this.setState({
+                cityWeather: serverResponse.data.weather[0].main,
+                cityTemp: serverResponse.data.main.temp,
+                cityHumidity: serverResponse.data.main.humidity
             })
-        }
+        })
+    }
 
     render(){
-        console.log(this.props.api_key)
         return(
             <div className="Weather">
-                <h3>Current Weather</h3>
+            <h3>Current Weather</h3>
+            <h4>{this.state.cityWeather}</h4>
+            <h4>{this.state.cityTemp} F</h4>
+            <h4>{this.state.cityHumidity}% Humidity</h4>
             </div>
         )
     }

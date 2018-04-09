@@ -1,9 +1,11 @@
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 
-
 const httpClient = axios.create()
 
+httpClient.getWeather = function(city) {
+	return this({ method: 'get', url: `/api/weather/${city}`})
+}
 
 httpClient.getToken = function() {
 	return localStorage.getItem('token')
@@ -20,8 +22,16 @@ httpClient.getCurrentUser = function() {
 	return null
 }
 
+httpClient.updateUser = function(updatedCredentials, userId ){
+	return this({ method: 'patch', url: `/api/users/${userId}`, data: updatedCredentials })
+		.then((serverResponse) => {
+			(console.log(serverResponse))
+		})
+	}
+
+
 httpClient.logIn = function(credentials) {
-	return this({ method: 'post', url: '/api/users/authenticate', data: credentials })
+	return this({ method: 'post', url: '/api/users/:id', data: credentials })
 		.then((serverResponse) => {
 			const token = serverResponse.data.token
 			if(token) {
