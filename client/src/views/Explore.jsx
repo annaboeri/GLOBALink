@@ -1,7 +1,9 @@
 import React from 'react'
-import MapContainer from '../components/MapContainer'
-import cityData from '../cityData.json'
 import './Explore.css'
+import MapContainer from '../components/MapContainer'
+import TwitterFeed from '../components/TwitterFeed'
+import cityData from '../cityData.json'
+
 
 class Explore extends React.Component {
     state = {
@@ -18,6 +20,7 @@ class Explore extends React.Component {
                 <div>
                 <h2>{this.state.randomCity.city}, {this.state.randomCity.country} </h2>
                 </div>
+                <TwitterFeed />
             </div>
         )
     }
