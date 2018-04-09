@@ -5,6 +5,7 @@ const NavBar = (props) => {
 	return (
 		<div className='NavBar Container'>
                 <Link to="/">Home</Link>
+                <Link to="/explore">Explore</Link>
                 {props.currentUser
                     ? (
                         <span>
