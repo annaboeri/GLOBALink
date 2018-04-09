@@ -1,4 +1,7 @@
 import Twitter from 'twitter'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const twitterClient = new Twitter({
 	consumer_key: process.env.CONSUMER_KEY,
