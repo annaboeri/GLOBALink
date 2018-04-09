@@ -6,6 +6,6 @@ import './styles.css'
 import App from './components/App'
 
 ReactDOM.render(
-	<Router><App /></Router>,
+	<Router><App id="App" /></Router>,
 	document.getElementById('root')
 )

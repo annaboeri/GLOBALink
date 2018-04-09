@@ -21,11 +21,6 @@ class MapContainer extends React.Component{
         onClick={this.onMapClicked}
         id="map"
       >
-        <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>{this.props.randomCity.city}, {this.props.randomCity.country}</h1>
-            </div>
-        </InfoWindow>
       </Map>
     )
   }
