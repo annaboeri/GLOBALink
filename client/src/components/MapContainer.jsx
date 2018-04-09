@@ -2,13 +2,9 @@ import React from 'react'
 import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 
 class MapContainer extends React.Component{
-  constructor(props) {
-    super(props)
-  }
 
   render(){
-    console.log(this.props.google.maps)
-    console.log(this.state.randomCity)
+    console.log(this.props.randomCity)
     const style = {
       width: '1000px',
       height: '500px'
@@ -18,8 +14,8 @@ class MapContainer extends React.Component{
         google={this.props.google}
         style={style}
         initialCenter={{
-          lat: this.state.randomCity.lat,
-          lng: this.state.randomCity.lng
+          lat: this.props.randomCity.lat,
+          lng: this.props.randomCity.lng
         }}
         zoom={15}
         onClick={this.onMapClicked}
@@ -27,7 +23,7 @@ class MapContainer extends React.Component{
       >
         <InfoWindow onClose={this.onInfoWindowClose}>
             <div>
-              <h1>{this.state.randomCity.city}, {this.state.randomCity}</h1>
+              <h1>{this.props.randomCity.city}, {this.props.randomCity.country}</h1>
             </div>
         </InfoWindow>
       </Map>

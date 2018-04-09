@@ -11,12 +11,11 @@ class Explore extends React.Component {
         return (
             <div className='Explore'>
                 <h1>GLOBALink</h1>
-                <MapContainer props={this.state.randomCity} />
+                <MapContainer randomCity={this.state.randomCity} />
             </div>
         )
     }
 
 }
-
 
 export default Explore
