@@ -20,7 +20,7 @@ class Explore extends React.Component {
                 <div>
                 <h2>{this.state.randomCity.city}, {this.state.randomCity.country} </h2>
                 </div>
-                <TwitterFeed />
+                <TwitterFeed randomCity={this.state.randomCity}/>
             </div>
         )
     }
