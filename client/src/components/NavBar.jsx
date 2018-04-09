@@ -1,26 +1,29 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './NavBar.css'
 
 const NavBar = (props) => {
 	return (
 		<div className='NavBar Container'>
-                <Link to="/">Home</Link>
-                <Link to="/explore">Explore</Link>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/explore">Explore</Link></li>
                 {props.currentUser
                     ? (
                         <span>
-                            <Link to="/logout">Log Out</Link>
-                            <Link to="/chat">Chat</Link>
-                            <Link to="/profile">Profile</Link>
+                            <li><Link to="/chat">Chat</Link></li>
+                            <li><Link to="/profile">Profile</Link></li>
+                            <li><Link to="/logout">Log Out</Link></li>
                         </span>
                     )
                     : (
                         <span>
-                            <Link to="/login">Log In</Link>
-                            <Link to="/signup">Sign Up</Link>
+                            <li><Link to="/login">Log In</Link></li>
+                            <li><Link to="/signup">Sign Up</Link></li>
                         </span>
                     )
                 }
+            </ul>
 		</div>
 	)
 }
