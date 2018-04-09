@@ -8,6 +8,7 @@ class MapContainer extends React.Component{
   }
 
   render(){
+    console.log(this.props.google.maps)
     console.log(this.state.randomCity)
     const style = {
       width: '1000px',
@@ -25,9 +26,6 @@ class MapContainer extends React.Component{
         onClick={this.onMapClicked}
         id="map"
       >
-        <Marker onClick={this.onMarkerClick}
-                name={'Current location'} />
-
         <InfoWindow onClose={this.onInfoWindowClose}>
             <div>
               <h1>{this.state.randomCity.city}, {this.state.randomCity}</h1>
