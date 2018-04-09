@@ -1,11 +1,11 @@
 import React from 'react'
 import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
-import cityData from '../cityData.json'
 
 class MapContainer extends React.Component{
-  state = {
-    randomCity: cityData[ Math.floor(Math.random() * 7323)]
+  constructor(props) {
+    super(props)
   }
+
   render(){
     console.log(this.props.google.maps)
     console.log(this.state.randomCity)

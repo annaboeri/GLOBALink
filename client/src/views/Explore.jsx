@@ -1,13 +1,21 @@
 import React from 'react'
 import MapContainer from '../components/MapContainer'
+import cityData from '../cityData.json'
 
-const Explore = (props) => {
-	return (
-		<div className='Explore'>
-			<h1>GLOBALink</h1>
-            <MapContainer />
-		</div>
-	)
+class Explore extends React.Component {
+    state = {
+        randomCity: cityData[ Math.floor(Math.random() * 7323)]
+      }
+    
+    render(){
+        return (
+            <div className='Explore'>
+                <h1>GLOBALink</h1>
+                <MapContainer props={this.state.randomCity} />
+            </div>
+        )
+    }
+
 }
 
 
