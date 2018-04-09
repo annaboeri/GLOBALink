@@ -8,7 +8,6 @@ const
     MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/project-4-api'
     PORT = process.env.port || 3001,
     usersRoutes = require('./routes/users.js'),
-    cityData = require('./cityData.json'),
 
 
 mongoose.connect(MONGODB_URI, (err) => {
@@ -17,10 +16,6 @@ mongoose.connect(MONGODB_URI, (err) => {
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
-
-app.get('/api', (req, res) => {
-    res.json(cityData)
-})
 
 app.use('/api/users', usersRoutes)
 

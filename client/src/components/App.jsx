@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import httpClient from '../httpClient'
 import NavBar from './NavBar'
 import LogIn from '../views/LogIn'
@@ -9,13 +9,12 @@ import Home from '../views/Home'
 
 class App extends React.Component {
 	state = { 
-		currentUser: httpClient.getCurrentUser() 
+		currentUser: httpClient.getCurrentUser()
 	}
 
 	onLoginSuccess(user) {
 		this.setState({ currentUser: httpClient.getCurrentUser() })
 	}
-
 	onBarSubmitSuccess(bar) {
 		this.setState({})
 
@@ -48,7 +47,9 @@ class App extends React.Component {
 						return <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
 					}} />
 
-					<Route path="/" component={Home} />
+					<Route path="/" render={(props) => {
+						return <Home />
+					}} />
 
 				</Switch>
 			</div>
