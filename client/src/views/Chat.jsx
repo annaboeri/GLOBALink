@@ -11,18 +11,33 @@ class Chat extends React.Component {
             fields: { username: this.props.user.name, message: ''},
             allMessages: [],
             allUsers: []
-        }    
+        }  
+        
+        this.componentDidMount = () => {
+            const socket = socketIOClient(this.state.endpoint)
+            socket.emit('broadcast-user', {
+                name: this.state.fields.username
+            })
+            socket.on('broadcast-user', function(user){
+                console.log("User sent to client", user)
+                addUser(user.name)
+            })
+        }
+
+        const addUser = user => {
+            this.setState({
+                allUsers: [...this.state.allUsers, user]
+            })
+        }
 
         const socket = socketIOClient(this.state.endpoint);
         socket.on('broadcast-message', function(msg){
-            console.log("Message Author", msg.author)
-            addMessage(msg);
+            addMessage(msg)
         })
 
         const addMessage = msg => {
             this.setState({
                 allMessages: [...this.state.allMessages, msg],
-                allUsers: [...this.state.allUsers, msg.author]
             })
         }
 
@@ -73,7 +88,7 @@ class Chat extends React.Component {
                 </div>
                 <div className="column column-50">
                     <ul>
-                        <li>Online Users: {this.state.allUsers.length}</li>
+                        <h3>Online Users: {this.state.allUsers.length}</h3>
                             { this.state.allUsers.map((user, index) => {
                             return (
                                 <li key={index}>{user}</li>

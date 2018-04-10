@@ -53,7 +53,10 @@ app.get('/api/weather/:city', (req, res) => {
 
 io.on('connection', socket => {
     console.log("A new client has connected...")
-
+    socket.on('broadcast-user', (user) => {
+        console.log("user has been broadcasted to server")
+        io.sockets.emit('broadcast-user', user)
+    })
     socket.on('broadcast-message', (msg) => {
         console.log('New message: ', msg)
         io.sockets.emit('broadcast-message', msg)
