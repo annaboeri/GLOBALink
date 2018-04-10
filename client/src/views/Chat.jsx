@@ -1,5 +1,6 @@
 import React from 'react'
 import socketIOClient from 'socket.io-client'
+import './Chat.css'
 
 class Chat extends React.Component {
     constructor(props){
@@ -48,20 +49,32 @@ class Chat extends React.Component {
 
     render(){
         return (
-		<div className='Chat'>
-			<h1>GLOBALink Chat</h1>
-            <div className="messages">
-               { this.state.allMessages.map((message, index) => {
-                   return (
-                       <div key={index}>{message.author}: {message.message}</div>
-                   )
-               })}
+		<div className="Chat container">
+            <div className="row">
+                <div className="column column-50">
+                    <h1>GLOBALink Chat</h1>
+                    <div className="messages">
+                    { this.state.allMessages.map((message, index) => {
+                        return (
+                            <div key={index}>{message.author}: {message.message}</div>
+                        )
+                    })}
+                    </div>
+                </div>
             </div>
-            <form onChange={this.onInputChange.bind(this)} onSubmit={this.sendMessage.bind(this)}>
-                <input type="text" placeholder="Username" name="username" value={this.state.fields.username} />
-				<input type="text" placeholder="Message" name="message" value={this.state.fields.message} />               
-                <button>Send Message</button>
-            </form>
+            <div className="row">
+                <div className="column column-50">
+                    <form onChange={this.onInputChange.bind(this)} onSubmit={this.sendMessage.bind(this)}>
+                    <fieldset>
+                            <label htmlFor="nameField">Username</label>
+                            <input type="text" id="nameField" placeholder="Username" name="username" value={this.state.fields.username} />
+                            <label htmlFor="commentField">Message</label>
+                            <input type="text" placeholder="Message" name="message" value={this.state.fields.message} />              
+                            <input className="button-primary" type="submit" value="Send Message" />
+                    </fieldset>
+                    </form>
+                </div>
+            </div>
 		</div>
 	)
  }
