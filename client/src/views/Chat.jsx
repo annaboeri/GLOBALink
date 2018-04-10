@@ -41,7 +41,7 @@ class Chat extends React.Component {
                 author: this.state.fields.username,
                 message: this.state.fields.message
             })
-            this.setState({ fields: { message: ''}})  
+            this.setState({ fields: { message: '', username: this.state.fields.username}})  
         }
     }
 
