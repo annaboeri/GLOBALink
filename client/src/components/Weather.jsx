@@ -25,7 +25,7 @@ class Weather extends React.Component{
                 <div className="Weather">
                     <h3>Current Weather</h3>
                     <h4>{this.state.cityWeather}</h4>
-                    <h4>{this.state.cityTemp} F</h4>
+                    <h4>{this.state.cityTemp}&deg; F</h4>
                     <h4>{this.state.cityHumidity}% Humidity</h4>
                 </div>
             )
