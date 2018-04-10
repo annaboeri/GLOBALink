@@ -22,7 +22,7 @@ class MapContainer extends React.Component{
           lng: this.props.randomCity.lng
         }}
         zoom={16}
-        mapTypeId='terrain'
+        mapTypeId="terrain"
         id="map"
       >
       </Map>

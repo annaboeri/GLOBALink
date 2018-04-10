@@ -15,13 +15,19 @@ const
     usersRoutes = require('./routes/users.js')
 
 const weatherApiKey = process.env.WEATHER_API_KEY
+const bearerToken = process.env.TWITTER_BEARER_ACCESS_TOKEN
+const consumerKey = process.env.TWITTER_CONSUMER_KEY
+const consumerSecret = process.env.TWITTER_CONSUMER_SECRET
 
-// const twitterClient = new Twitter({
-//         consumer_key: process.env.TWITTER_CONSUMER_KEY,
-//         consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-//         access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-//         access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-//       });
+const twitterClient = new Twitter({
+    consumer_key: consumerKey,
+    consumer_secret: consumerSecret,
+    bearer_token: bearerToken
+      })
+
+twitterClient.get('https://api.twitter.com/1.1/trends/closest.json?lat=37.781157&long=-122.400612831116', (err, apiResponse) => {
+    console.log(apiResponse[0].woeid)
+})
 
 mongoose.connect(MONGODB_URI, (err) => {
     console.log(err || 'Connected to MongoDB')
@@ -41,15 +47,6 @@ app.get('/api/weather/:city', (req, res) => {
     })
 })
 
-// app.get('/api/twitter/:lat/:lng', (req, res) => {
-//     console.log(process.env.TWITTER_CONSUMER_KEY)
-//     twitterClient.get(`https://api.twitter.com/1.1/trends/closest.json?lat=${req.params.lat}&long=-${req.params.lat}`).then((apiResponse) => {
-
-//       })
-//       .catch(function (error) {
-//         throw error;
-//       }) 
-// })
 
 io.on('connection', socket => {
     console.log("A new client has connected...")
