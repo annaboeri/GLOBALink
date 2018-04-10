@@ -50,19 +50,14 @@ app.get('/api/weather/:city', (req, res) => {
 //         throw error;
 //       }) 
 // })
+
 io.on('connection', socket => {
     console.log("A new client has connected...")
-   // io.emit('new-user-connection', { boom: "BANANA!!" })
-
-    // socket.on('new-message', (message) => {
-    //     io.emit('broadcast-message', message)
-    // })
 
     socket.on('broadcast-message', (msg) => {
         console.log('New message: ', msg)
         io.sockets.emit('broadcast-message', msg)
     })
-    // disconnect is fired when a client leaves the server
     socket.on('disconnect', () => {
         console.log('user disconnected')
     })
