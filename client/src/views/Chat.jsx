@@ -9,19 +9,22 @@ class Chat extends React.Component {
         this.state = {
             endpoint: "http://localhost:3001",
             fields: { username: this.props.user.name, message: ''},
-            allMessages: []
+            allMessages: [],
+            allUsers: []
         }    
 
         const socket = socketIOClient(this.state.endpoint);
         socket.on('broadcast-message', function(msg){
+            console.log("Message Author", msg.author)
             addMessage(msg);
-        });
+        })
 
         const addMessage = msg => {
-            console.log(msg)
-            this.setState({allMessages: [...this.state.allMessages, msg]});
-            console.log(this.state.allMessages);
-        };
+            this.setState({
+                allMessages: [...this.state.allMessages, msg],
+                allUsers: [...this.state.allUsers, msg.author]
+            })
+        }
 
         this.onInputChange = (evt) => {
             this.setState({
@@ -30,24 +33,24 @@ class Chat extends React.Component {
                     [evt.target.name]: evt.target.value
                 }
             })
-            console.log(this.state.fields.username, this.state.fields.message)
         }
 
-    
         this.sendMessage = (evt) => {
-            console.log(this.state.fields.username, this.state.fields.message)
             evt.preventDefault()
             const socket = socketIOClient(this.state.endpoint)
             socket.emit('broadcast-message', {
                 author: this.state.fields.username,
                 message: this.state.fields.message
             })
-            this.setState({ fields: { message: '', username: this.state.fields.username}})  
+            this.setState({ 
+                fields: { message: ''}
+            })  
         }
     }
 
 
     render(){
+        console.log(this.state.allUsers)
         return (
 		<div className="Chat container">
             <h1>GLOBALink Chat</h1>
@@ -70,7 +73,12 @@ class Chat extends React.Component {
                 </div>
                 <div className="column column-50">
                     <ul>
-                        <li>Online Users:</li>
+                        <li>Online Users: {this.state.allUsers.length}</li>
+                            { this.state.allUsers.map((user, index) => {
+                            return (
+                                <li key={index}>{user}</li>
+                                )
+                            })}
                     </ul>
                 </div>
             </div>
