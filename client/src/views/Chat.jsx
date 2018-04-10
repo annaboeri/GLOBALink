@@ -50,21 +50,17 @@ class Chat extends React.Component {
     render(){
         return (
 		<div className="Chat container">
+            <h1>GLOBALink Chat</h1>
             <div className="row">
                 <div className="column column-50">
-                    <h1>GLOBALink Chat</h1>
                     <div className="messages">
                     { this.state.allMessages.map((message, index) => {
                         return (
                             <div key={index}>{message.author}: {message.message}</div>
                         )
                     })}
-                    </div>
-                </div>
-            </div>
-            <div className="row">
-                <div className="column column-50">
-                    <form onChange={this.onInputChange.bind(this)} onSubmit={this.sendMessage.bind(this)}>
+                           </div>
+                                <form onChange={this.onInputChange.bind(this)} onSubmit={this.sendMessage.bind(this)}>
                     <fieldset>
                             <label htmlFor="nameField">Username</label>
                             <input type="text" id="nameField" placeholder="Username" name="username" value={this.state.fields.username} />
@@ -73,6 +69,11 @@ class Chat extends React.Component {
                             <input className="button-primary" type="submit" value="Send Message" />
                     </fieldset>
                     </form>
+                </div>
+                <div className="column column-50">
+                    <ul>
+                        <li>Online Users:</li>
+                    </ul>
                 </div>
             </div>
 		</div>
