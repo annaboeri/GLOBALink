@@ -1,5 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient'
+import './Weather.css'
 
 class Weather extends React.Component{
 

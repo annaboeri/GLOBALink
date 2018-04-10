@@ -1,0 +1,9 @@
+.Weather {
+    box-sizing: border-box;
+    width: 250px;
+    height: 250px;
+    padding: 30px 0;
+    margin-top: 30px;
+    border: 2px solid #ab5dda;
+    text-align: center;
+}
