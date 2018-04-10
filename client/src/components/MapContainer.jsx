@@ -5,6 +5,10 @@ class MapContainer extends React.Component{
 
   render(){
     console.log(this.props.randomCity)
+    console.log(this.props.google.maps.MapTypeId["SATELLITE"])
+    if (!this.props.google) {
+      return <div>Loading Map...</div>;
+    }
     const style = {
       width: '1000px',
       height: '500px'
@@ -17,8 +21,8 @@ class MapContainer extends React.Component{
           lat: this.props.randomCity.lat,
           lng: this.props.randomCity.lng
         }}
-        zoom={15}
-        onClick={this.onMapClicked}
+        zoom={16}
+        mapTypeId='terrain'
         id="map"
       >
       </Map>
