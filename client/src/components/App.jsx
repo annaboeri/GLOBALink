@@ -59,7 +59,7 @@ class App extends React.Component {
 					
 					<Route path="/chat" render={(props) => {
 						return currentUser
-						? <Chat />
+						? <Chat user={currentUser} />
 						: <Redirect to="/login" />
 					}} />
 					

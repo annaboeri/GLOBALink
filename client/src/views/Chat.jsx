@@ -8,7 +8,7 @@ class Chat extends React.Component {
 
         this.state = {
             endpoint: "http://localhost:3001",
-            fields: { username: '', message: ''},
+            fields: { username: this.props.user.name, message: ''},
             allMessages: []
         }    
 
@@ -62,8 +62,6 @@ class Chat extends React.Component {
                            </div>
                                 <form onChange={this.onInputChange.bind(this)} onSubmit={this.sendMessage.bind(this)}>
                     <fieldset>
-                            <label htmlFor="nameField">Username</label>
-                            <input type="text" id="nameField" placeholder="Username" name="username" value={this.state.fields.username} />
                             <label htmlFor="commentField">Message</label>
                             <input type="text" placeholder="Message" name="message" value={this.state.fields.message} />              
                             <input className="button-primary" type="submit" value="Send Message" />
