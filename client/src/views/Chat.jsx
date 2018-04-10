@@ -40,9 +40,9 @@ class Chat extends React.Component {
 		<div className='Chat'>
 			<h1>GLOBALink Chat</h1>
             <div className="messages">
-               { this.state.allMessages.map(message => {
+               { this.state.allMessages.map((message, index) => {
                    return (
-                       <div>{message.author}: {message.message}</div>
+                       <div key={index}>{message.author}: {message.message}</div>
                    )
                })}
             </div>
