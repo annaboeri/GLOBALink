@@ -20,17 +20,28 @@ class Chat extends React.Component {
             console.log(msg)
             this.setState({allMessages: [...this.state.allMessages, msg]});
             console.log(this.state.allMessages);
+        };
+
+        this.onInputChange = (evt) => {
+            this.setState({
+                fields: {
+                    ...this.state.fields,
+                    [evt.target.name]: evt.target.value
+                }
+            })
+            console.log(this.state.fields.username, this.state.fields.message)
         }
+
     
         this.sendMessage = (evt) => {
-            console.log(this.state.username, this.state.message)
+            console.log(this.state.fields.username, this.state.fields.message)
             evt.preventDefault()
             const socket = socketIOClient(this.state.endpoint)
             socket.emit('broadcast-message', {
-                author: this.state.username,
-                message: this.state.message
+                author: this.state.fields.username,
+                message: this.state.fields.message
             })
-            this.setState({ message: ''})  
+            this.setState({ fields: { message: ''}})  
         }
     }
 
@@ -46,18 +57,9 @@ class Chat extends React.Component {
                    )
                })}
             </div>
-            <form onSubmit={this.sendMessage.bind(this)}>
-                <input 
-                    type="text" 
-                    placeholder="Username" 
-                    value={this.state.username} 
-                    onChange={ev => this.setState({username: ev.target.value})} />
-                <input 
-                    type="text" 
-                    placeholder="Message" 
-                    name="message" 
-                    value={this.state.message}
-                    onChange={ev => this.setState({message: ev.target.value})} />               
+            <form onChange={this.onInputChange.bind(this)} onSubmit={this.sendMessage.bind(this)}>
+                <input type="text" placeholder="Username" name="username" value={this.state.fields.username} />
+				<input type="text" placeholder="Message" name="message" value={this.state.fields.message} />               
                 <button>Send Message</button>
             </form>
 		</div>
