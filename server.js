@@ -58,9 +58,9 @@ io.on('connection', socket => {
     //     io.emit('broadcast-message', message)
     // })
 
-    socket.on('change color', (color) => {
-        console.log('Color changed to: ', color)
-        io.sockets.emit('change color', color)
+    socket.on('broadcast-message', (msg) => {
+        console.log('New message: ', msg)
+        io.sockets.emit('broadcast-message', msg)
     })
     // disconnect is fired when a client leaves the server
     socket.on('disconnect', () => {
