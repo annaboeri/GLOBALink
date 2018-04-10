@@ -1,6 +1,5 @@
 import React from 'react'
 import './TwitterFeed.css'
-import twitterClient from '../twitterClient'
 
 
 class TwitterFeed extends React.Component {

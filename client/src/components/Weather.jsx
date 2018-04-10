@@ -11,8 +11,6 @@ class Weather extends React.Component{
 
     componentWillMount(){
         httpClient.getWeather(this.props.randomCity.city).then((serverResponse) => {
-            console.log(serverResponse.data)
-            console.log(serverResponse.data.weather[0].main)
             this.setState({
                 cityWeather: serverResponse.data.weather[0].main,
                 cityTemp: serverResponse.data.main.temp,
@@ -22,12 +20,19 @@ class Weather extends React.Component{
     }
 
     render(){
-        return(
+        if(this.state.cityWeather !== "" || this.state.cityTemp !== "" || this.state.cityHumidity !== ""){
+            return(
+                <div className="Weather">
+                    <h3>Current Weather</h3>
+                    <h4>{this.state.cityWeather}</h4>
+                    <h4>{this.state.cityTemp} F</h4>
+                    <h4>{this.state.cityHumidity}% Humidity</h4>
+                </div>
+            )
+        }
+        return (
             <div className="Weather">
-            <h3>Current Weather</h3>
-            <h4>{this.state.cityWeather}</h4>
-            <h4>{this.state.cityTemp} F</h4>
-            <h4>{this.state.cityHumidity}% Humidity</h4>
+                <h3>No Weather Data Available</h3>
             </div>
         )
     }
