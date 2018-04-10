@@ -4,7 +4,7 @@ import socketIOClient from 'socket.io-client'
 class Chat extends React.Component {
     state = {
         endpoint: "http://localhost:3001",
-        incomingMessage: "",
+        allMessages: [],
         message: ""
     }
 
@@ -25,14 +25,13 @@ class Chat extends React.Component {
         const socket = socketIOClient(this.state.endpoint);
         socket.on('broadcast-message', (incomingMsg) => {
           this.setState({
-            incomingMessage: incomingMsg
+            allMessages: [ ...this.state.allMessages, incomingMsg]
           })
         })
-        console.log(this.state.message, this.state.incomingMessage)
         return (
 		<div className='Chat'>
 			<h1>GLOBALink Chat</h1>
-            <h1>{this.state.incomingMessage}</h1>
+            <h1>{this.state.allMessages}</h1>
             <form onChange={this.onInputChange.bind(this)} onSubmit={this.sendSocket.bind(this)}>
 				<input type="text" placeholder="Message" name="message" value={this.state.message} />               
                 <button>Send Message</button>
