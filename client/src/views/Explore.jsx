@@ -19,7 +19,9 @@ class Explore extends React.Component {
                     <MapContainer randomCity={this.state.randomCity} />
                 </div>
                 <div>
-                <h2>{this.state.randomCity.city}: {this.state.randomCity.province}, {this.state.randomCity.country} </h2>
+                <h2>{this.state.randomCity.city} </h2>
+                <h3>Location: {this.state.randomCity.province}, {this.state.randomCity.country}</h3>
+                <h3>Population: {this.state.randomCity.pop}</h3>
                 </div>
                 <TwitterFeed randomCity={this.state.randomCity}/>
                 <Weather randomCity={this.state.randomCity} />

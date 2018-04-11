@@ -24,7 +24,7 @@ class Weather extends React.Component{
         if(this.state.cityWeather !== "" || this.state.cityTemp !== "" || this.state.cityHumidity !== ""){
             return(
                 <div className="Weather">
-                    <h3>Current Weather</h3>
+                    <h3>Current Weather:</h3>
                     <h4>{this.state.cityWeather}</h4>
                     <h4>{this.state.cityTemp}&deg; F</h4>
                     <h4>{this.state.cityHumidity}% Humidity</h4>
