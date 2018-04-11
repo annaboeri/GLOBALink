@@ -19,12 +19,23 @@ const bearerToken = process.env.TWITTER_BEARER_ACCESS_TOKEN
 const consumerKey = process.env.TWITTER_CONSUMER_KEY
 const consumerSecret = process.env.TWITTER_CONSUMER_SECRET
 const googlePlacesApiKey = process.env.GOOGLE_PLACES_API_KEY
+const worldtimeApiKey = process.env.WORLDTIME_API_KEY
 
 const twitterClient = new Twitter({
     consumer_key: consumerKey,
     consumer_secret: consumerSecret,
     bearer_token: bearerToken
       })
+
+
+mongoose.connect(MONGODB_URI, (err) => {
+    console.log(err || 'Connected to MongoDB')
+})
+
+app.use(logger('dev'))
+app.use(bodyParser.json())
+app.use('/api/users', usersRoutes)
+
 
 app.get('/api/id/:lat/:lng', (req, res) => {
     twitterClient.get(
@@ -42,19 +53,19 @@ app.get('/api/googleplaces/:lat/:lng', (req, res) => {
     })
 })
 
-mongoose.connect(MONGODB_URI, (err) => {
-    console.log(err || 'Connected to MongoDB')
-})
-
-app.use(logger('dev'))
-app.use(bodyParser.json())
-
-app.use('/api/users', usersRoutes)
-
 app.get('/api/weather/:city', (req, res) => {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${req.params.city}&APPID=${weatherApiKey}&units=imperial`
     const options = { method: 'get', url: apiUrl }
     httpClient(options).then((apiResponse) => {
+        res.json(apiResponse.data)
+    })
+})
+
+app.get('/api/time/:lat/:lng', (req, res) => {
+    const apiUrl = `https://worldtimeiodeveloper.p.mashape.com/geo?latitude=${req.params.lat}&longitude=${req.params.lng}`
+    const options = { method: 'get', url: apiUrl, headers: {'X-Mashape-Key': worldtimeApiKey}}
+    httpClient(options).then((apiResponse) => {
+        console.log(apiResponse.data)
         res.json(apiResponse.data)
     })
 })

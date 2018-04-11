@@ -4,15 +4,19 @@ import jwtDecode from 'jwt-decode'
 const httpClient = axios.create()
 
 httpClient.getWeather = function(city) {
-	return this({ method: 'get', url: `/api/weather/${city}`})
+	return this({method: 'get', url: `/api/weather/${city}`})
 }
 
 httpClient.getTwitterTrends = function(lat, lng) {
-	return this({ method: 'get', url: `/api/id/${lat}/${lng}`})
+	return this({method: 'get', url: `/api/id/${lat}/${lng}`})
 }
 
 httpClient.getGooglePlacesData = function(lat, lng) {
 	return this({method: 'get', url: `/api/googleplaces/${lat}/${lng}`})
+}
+
+httpClient.getLocalTime = function(lat, lng) {
+	return this({method: 'get', url: `/api/time/${lat}/${lng}`})
 }
 
 httpClient.getToken = function() {

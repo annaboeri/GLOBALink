@@ -4,6 +4,7 @@ import MapContainer from '../components/MapContainer'
 import TwitterFeed from '../components/TwitterFeed'
 import Weather from '../components/Weather'
 import GooglePlaces from '../components/GooglePlaces'
+import LocalTime from '../components/LocalTime'
 import cityData from '../cityData.json'
 
 
@@ -26,6 +27,7 @@ class Explore extends React.Component {
                             <h3>Location: {this.state.randomCity.province}, {this.state.randomCity.country}</h3>
                             <h3>Population: {this.state.randomCity.pop}</h3>
                         </div>
+                        <LocalTime randomCity={this.state.randomCity} /> 
                     </div>
                 </div>
                 <div className="row">
