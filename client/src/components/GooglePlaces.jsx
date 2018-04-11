@@ -1,5 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient'
+import './GooglePlaces.css'
 
 
 class GooglePlaces extends React.Component {
@@ -25,7 +26,7 @@ class GooglePlaces extends React.Component {
                     return (
                         <div>
                             <div key={t.name}>{t.name}</div>
-                            <img key={t.geometry.icon} src={t.icon} />
+                            <img className="placeIcon" key={t.geometry.icon} src={t.icon} />
                         </div>
                     )
                 }) }
