@@ -18,6 +18,7 @@ const weatherApiKey = process.env.WEATHER_API_KEY
 const bearerToken = process.env.TWITTER_BEARER_ACCESS_TOKEN
 const consumerKey = process.env.TWITTER_CONSUMER_KEY
 const consumerSecret = process.env.TWITTER_CONSUMER_SECRET
+const googlePlacesApiKey = process.env.GOOGLE_PLACES_API_KEY
 
 const twitterClient = new Twitter({
     consumer_key: consumerKey,
@@ -33,6 +34,12 @@ app.get('/api/id/:lat/:lng', (req, res) => {
                 res.json(apiResponse[0].trends)
             })
         })        
+})
+
+app.get('/api/googleplaces/:lat/:lng', (req, res) => {
+    httpClient.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${req.params.lat},${req.params.lng}&radius=500&key=${googlePlacesApiKey}`).then((apiResponse) => {
+         res.json(apiResponse.data.results)
+    })
 })
 
 mongoose.connect(MONGODB_URI, (err) => {

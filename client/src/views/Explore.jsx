@@ -3,6 +3,7 @@ import './Explore.css'
 import MapContainer from '../components/MapContainer'
 import TwitterFeed from '../components/TwitterFeed'
 import Weather from '../components/Weather'
+import GooglePlaces from '../components/GooglePlaces'
 import cityData from '../cityData.json'
 
 
@@ -25,6 +26,7 @@ class Explore extends React.Component {
                 </div>
                 <TwitterFeed randomCity={this.state.randomCity}/>
                 <Weather randomCity={this.state.randomCity} />
+                <GooglePlaces randomCity={this.state.randomCity} />
             </div>
         )
     }

@@ -7,12 +7,12 @@ httpClient.getWeather = function(city) {
 	return this({ method: 'get', url: `/api/weather/${city}`})
 }
 
-httpClient.getWOEID = function(lat, lng) {
+httpClient.getTwitterTrends = function(lat, lng) {
 	return this({ method: 'get', url: `/api/id/${lat}/${lng}`})
 }
 
-httpClient.getTwitterTrends = function(woeid) {
-	return this({method: 'get', url: `/api/tweets/${woeid}` })
+httpClient.getGooglePlacesData = function(lat, lng) {
+	return this({method: 'get', url: `/api/googleplaces/${lat}/${lng}`})
 }
 
 httpClient.getToken = function() {

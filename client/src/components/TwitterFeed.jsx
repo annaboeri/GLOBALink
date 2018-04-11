@@ -10,7 +10,7 @@ class TwitterFeed extends React.Component {
     }
 
     componentDidMount(){
-        httpClient.getWOEID(this.props.randomCity.lat, this.props.randomCity.lng).then((serverResponse) => {
+        httpClient.getTwitterTrends(this.props.randomCity.lat, this.props.randomCity.lng).then((serverResponse) => {
             this.setState({
                 twitterTrends: serverResponse.data
             })
