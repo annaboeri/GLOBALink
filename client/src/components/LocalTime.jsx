@@ -23,7 +23,7 @@ class LocalTime extends React.Component{
             return(
                 <div className="LocalTime">
                     <h3>Current Time: 
-                        <Clock format={'h:mm:ss a'} ticking={true} timezone={localTimezone} />
+                        <Clock format={' h:mm:ss a'} ticking={true} timezone={localTimezone} />
                     </h3>                    
                 </div>
             )
