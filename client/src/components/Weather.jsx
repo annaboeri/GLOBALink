@@ -7,27 +7,32 @@ class Weather extends React.Component{
     state = {
         cityWeather: "",
         cityTemp: "",
-        cityHumidity: ""
+        cityHumidity: "",
+        weatherIconSrc: ""
     }
 
     componentWillMount(){
         httpClient.getWeather(this.props.randomCity.city).then((serverResponse) => {
+            const icon = serverResponse.data.weather[0].icon
             this.setState({
                 cityWeather: serverResponse.data.weather[0].main,
                 cityTemp: serverResponse.data.main.temp,
-                cityHumidity: serverResponse.data.main.humidity
+                cityHumidity: serverResponse.data.main.humidity,
+                weatherIconSrc: `http://openweathermap.org/img/w/${icon}.png`
             })
         })
     }
 
     render(){
+        const { cityWeather, cityTemp, cityHumidity, weatherIconSrc } = this.state
         if(this.state.cityWeather !== "" || this.state.cityTemp !== "" || this.state.cityHumidity !== ""){
             return(
                 <div className="Weather">
                     <h3>Current Weather:</h3>
-                    <h4>{this.state.cityWeather}</h4>
-                    <h4>{this.state.cityTemp}&deg; F</h4>
-                    <h4>{this.state.cityHumidity}% Humidity</h4>
+                    <img className="weatherIcon" src={weatherIconSrc} />
+                    <div className="weatherType">{cityWeather}</div>
+                    <div>{cityTemp}&deg; F</div>
+                    <div>{cityHumidity}% Humidity</div>
                 </div>
             )
         }
