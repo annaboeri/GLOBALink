@@ -8,7 +8,7 @@ class Chat extends React.Component {
 
         this.state = {
             endpoint: "http://localhost:3001",
-            fields: { username: this.props.user.name, message: ''},
+            fields: { username: this.props.user.name, id: this.props.user._id, message: ''},
             allMessages: [],
             allUsers: []
         }  
@@ -16,11 +16,12 @@ class Chat extends React.Component {
         this.componentDidMount = () => {
             const socket = socketIOClient(this.state.endpoint)
             socket.emit('broadcast-user', {
-                name: this.state.fields.username
+                name: this.state.fields.username,
+                id: this.state.fields.id
             })
             socket.on('broadcast-user', function(user){
                 console.log("User sent to client", user)
-                addUser(user.name)
+                addUser(user)
             })
         }
 
@@ -55,10 +56,11 @@ class Chat extends React.Component {
             const socket = socketIOClient(this.state.endpoint)
             socket.emit('broadcast-message', {
                 author: this.state.fields.username,
+                id: this.state.fields.username,
                 message: this.state.fields.message
             })
             this.setState({ 
-                fields: { username: this.props.user.name, message: '' }
+                fields: { username: this.props.user.name, id: this.props.user._id, message: '' }
             })  
         }
     }
@@ -90,8 +92,13 @@ class Chat extends React.Component {
                     <ul>
                         <h3>Online Users: {this.state.allUsers.length}</h3>
                             { this.state.allUsers.map((user, index) => {
+                            {if(this.props.user._id === user.id) {
+                                return (
+                                    <li key={index}>{user.name} (You)</li>     
+                                )
+                            }}
                             return (
-                                <li key={index}>{user}</li>
+                                <li key={index}>{user.name}</li>                            
                                 )
                             })}
                     </ul>

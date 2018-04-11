@@ -29,7 +29,7 @@ class Weather extends React.Component{
             return(
                 <div className="Weather">
                     <h3>Current Weather:</h3>
-                    <img className="weatherIcon" src={weatherIconSrc} />
+                    <img className="weatherIcon" src={weatherIconSrc} alt="weather icon" />
                     <div className="weatherType">{cityWeather}</div>
                     <div>{cityTemp}&deg; F</div>
                     <div>{cityHumidity}% Humidity</div>
