@@ -58,7 +58,7 @@ class Chat extends React.Component {
                 message: this.state.fields.message
             })
             this.setState({ 
-                fields: { message: ''}
+                fields: { username: this.props.user.name, message: '' }
             })  
         }
     }
@@ -71,20 +71,20 @@ class Chat extends React.Component {
             <h1>GLOBALink Chat</h1>
             <div className="row">
                 <div className="column column-50">
-                    <div className="messages">
+                    <div className="chatBox">
                     { this.state.allMessages.map((message, index) => {
                         return (
                             <div key={index}>{message.author}: {message.message}</div>
                         )
                     })}
-                           </div>
-                                <form onChange={this.onInputChange.bind(this)} onSubmit={this.sendMessage.bind(this)}>
-                    <fieldset>
-                            <label htmlFor="commentField">Message</label>
-                            <input type="text" placeholder="Message" name="message" value={this.state.fields.message} />              
-                            <input className="button-primary" type="submit" value="Send Message" />
-                    </fieldset>
-                    </form>
+                    </div>
+                        <form onChange={this.onInputChange.bind(this)} onSubmit={this.sendMessage.bind(this)}>
+                        <fieldset>
+                                <label htmlFor="commentField">Message</label>
+                                <input type="text" placeholder="Message" name="message" value={this.state.fields.message} />              
+                                <input className="button-primary" type="submit" value="Send Message" />
+                        </fieldset>
+                        </form>
                 </div>
                 <div className="column column-50">
                     <ul>
