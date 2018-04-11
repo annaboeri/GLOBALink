@@ -61,15 +61,15 @@ app.get('/api/weather/:city', (req, res) => {
     })
 })
 
+
 app.get('/api/time/:lat/:lng', (req, res) => {
-    const apiUrl = `https://worldtimeiodeveloper.p.mashape.com/geo?latitude=${req.params.lat}&longitude=${req.params.lng}`
-    const options = { method: 'get', url: apiUrl, headers: {'X-Mashape-Key': worldtimeApiKey}}
+    const apiUrl = `https://maps.googleapis.com/maps/api/timezone/json?location=${req.params.lat},${req.params.lng}&timestamp=1331766000&key=AIzaSyDJ323ZJhLZohoR7aqMU4tqm2etoDbRPMA`
+    const options = { method: 'get', url: apiUrl }
     httpClient(options).then((apiResponse) => {
-        console.log(apiResponse.data)
-        res.json(apiResponse.data)
+        console.log(apiResponse.data.timeZoneId)
+        res.json(apiResponse.data.timeZoneId)
     })
 })
-
 
 io.on('connection', socket => {
     console.log("A new client has connected...")
