@@ -14,19 +14,33 @@ class Explore extends React.Component {
     
     render(){
         return (
-            <div className='Explore'>
+            <div className='Explore container'>
                 <h1>GLOBALink</h1>
-                <div id='MapContainer'>
-                    <MapContainer randomCity={this.state.randomCity} />
+                <div className="row">
+                    <div className="column">
+                        <div id='MapContainer'>
+                            <MapContainer randomCity={this.state.randomCity} />
+                        </div>
+                        <div>
+                            <h2>{this.state.randomCity.city} </h2>
+                            <h3>Location: {this.state.randomCity.province}, {this.state.randomCity.country}</h3>
+                            <h3>Population: {this.state.randomCity.pop}</h3>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                <h2>{this.state.randomCity.city} </h2>
-                <h3>Location: {this.state.randomCity.province}, {this.state.randomCity.country}</h3>
-                <h3>Population: {this.state.randomCity.pop}</h3>
+                <div className="row">
+                    <div className="column">
+                        <TwitterFeed randomCity={this.state.randomCity}/>
+                    </div>
                 </div>
-                <TwitterFeed randomCity={this.state.randomCity}/>
-                <Weather randomCity={this.state.randomCity} />
-                <GooglePlaces randomCity={this.state.randomCity} />
+                <div className="row">
+                    <div className="column">
+                        <Weather randomCity={this.state.randomCity} />
+                    </div>
+                    <div className="placesDiv column column-80">
+                        <GooglePlaces randomCity={this.state.randomCity} />
+                    </div>
+                </div>
             </div>
         )
     }

@@ -9,6 +9,12 @@ class GooglePlaces extends React.Component {
         googlePlaces: []
     }
 
+    componentWillMount(){
+        this.setState({
+            googlePlaces: []
+        })
+    }
+
     componentDidMount(){
         httpClient.getGooglePlacesData(this.props.randomCity.lat, this.props.randomCity.lng).then((serverResponse) => {
             this.setState({
@@ -18,21 +24,25 @@ class GooglePlaces extends React.Component {
     } 
 
 	render(){ 
-        console.log(this.state.googlePlaces)
+        if(this.state.googlePlaces !== []){
         return (
 		<div className="GooglePlaces">
-            <div>Top Places:
-                {this.state.googlePlaces.map((t, i) => {
-                    return (
-                        <div>
-                            <div key={t.name}>{t.name}</div>
-                            <img className="placeIcon" key={t.geometry.icon} src={t.icon} />
-                        </div>
-                    )
-                }) }
-            </div>
+            <h3>Top Places:</h3>
+            {this.state.googlePlaces.map((t, i) => {
+                return (
+                    <div>
+                        <img className="placeIcon" key={t.geometry.icon} src={t.icon} alt="place icon" />
+                        <div className="placeName" key={t.name}>{t.name}</div>
+                    </div>
+                )
+            }) }
 		</div>
-    )
+        )}
+        return (
+            <div className="GooglePlaces">
+                <h3>No Place Data Available</h3>
+            </div>
+        )
     }
 }
 
