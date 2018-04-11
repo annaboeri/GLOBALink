@@ -21,10 +21,10 @@ class TwitterFeed extends React.Component {
         return (
 		<div className="TwitterFeed ticker-wrap">
             <div className="ticker">
-                {/* {this.state.twitterTrends.map((t, i) => {
+                {this.state.twitterTrends.map((t, i) => {
                     return <div className="ticker-item" key={i}>{t.name}</div>
-                }) } */}
-                <div className="ticker-item">Tweet</div>
+                }) }
+               {/* <div className="ticker-item">Tweet</div> */}
             </div>
 		</div>
     )
