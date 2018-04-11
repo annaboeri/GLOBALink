@@ -5,7 +5,6 @@ class MapContainer extends React.Component{
 
   render(){
     console.log(this.props.randomCity)
-    console.log(this.props.google.maps.MapTypeId["SATELLITE"])
     if (!this.props.google) {
       return <div>Loading Map...</div>;
     }

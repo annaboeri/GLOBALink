@@ -6,26 +6,24 @@ import './TwitterFeed.css'
 class TwitterFeed extends React.Component {
 
     state = {
-        randomCityWOEID: null
+        twitterTrends: []
     }
 
-
-    componentWillMount(){
+    componentDidMount(){
         httpClient.getWOEID(this.props.randomCity.lat, this.props.randomCity.lng).then((serverResponse) => {
             this.setState({
-                randomCityWOEID: serverResponse.data
+                twitterTrends: serverResponse.data
             })
         })
     }
 
 	render(){ 
-        console.log(this.state)
         return (
 		<div className='TwitterFeed Container'>
             <ul>
-                <li>Tweet</li>
-                <li>Another Tweet</li>
-                <li>Third Tweet</li>
+                {this.state.twitterTrends.map((t, i) => {
+                    return <li key={i}>{t.name}</li>
+                }) }
             </ul>
 		</div>
     )

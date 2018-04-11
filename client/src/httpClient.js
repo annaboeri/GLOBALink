@@ -8,7 +8,11 @@ httpClient.getWeather = function(city) {
 }
 
 httpClient.getWOEID = function(lat, lng) {
-	return this({ method: 'get', url: `/api/tweets/${lat}/${lng}`})
+	return this({ method: 'get', url: `/api/id/${lat}/${lng}`})
+}
+
+httpClient.getTwitterTrends = function(woeid) {
+	return this({method: 'get', url: `/api/tweets/${woeid}` })
 }
 
 httpClient.getToken = function() {

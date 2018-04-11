@@ -25,23 +25,14 @@ const twitterClient = new Twitter({
     bearer_token: bearerToken
       })
 
-app.get('/api/tweets/:lat/:lng', (req, res) => {
-    console.log(req.params)
-    var woeid 
+app.get('/api/id/:lat/:lng', (req, res) => {
     twitterClient.get(
         `https://api.twitter.com/1.1/trends/closest.json?lat=${req.params.lat}&long=${req.params.lng}`, (err, apiResponse) => {
-            console.log(apiResponse || err)
-            res.json(apiResponse[0].woeid)
-            woeid = apiResponse[0].woeid
-            console.log(woeid)
-        })
-        // .then(
-        //     twitterClient.get(`https://api.twitter.com/1.1/trends/place.json?id=${woeid}`, (err, apiResponse) => {
-        //         console.log(apiResponse || err)
-        //        // res.json(apiResponse)
-        //     })
-        // )
-            
+            twitterClient.get(
+                `https://api.twitter.com/1.1/trends/place.json?id=${apiResponse[0].woeid}`, (err, apiResponse) => {
+                res.json(apiResponse[0].trends)
+            })
+        })        
 })
 
 mongoose.connect(MONGODB_URI, (err) => {
@@ -57,7 +48,6 @@ app.get('/api/weather/:city', (req, res) => {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${req.params.city}&APPID=${weatherApiKey}&units=imperial`
     const options = { method: 'get', url: apiUrl }
     httpClient(options).then((apiResponse) => {
-        console.log(apiResponse.data)
         res.json(apiResponse.data)
     })
 })
