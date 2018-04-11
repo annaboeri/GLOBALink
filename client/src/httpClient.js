@@ -7,6 +7,10 @@ httpClient.getWeather = function(city) {
 	return this({ method: 'get', url: `/api/weather/${city}`})
 }
 
+httpClient.getWOEID = function(lat, lng) {
+	return this({ method: 'get', url: `/api/tweets/${lat}/${lng}`})
+}
+
 httpClient.getToken = function() {
 	return localStorage.getItem('token')
 }

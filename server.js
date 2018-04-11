@@ -25,8 +25,23 @@ const twitterClient = new Twitter({
     bearer_token: bearerToken
       })
 
-twitterClient.get('https://api.twitter.com/1.1/trends/closest.json?lat=37.781157&long=-122.400612831116', (err, apiResponse) => {
-    console.log(apiResponse[0].woeid)
+app.get('/api/tweets/:lat/:lng', (req, res) => {
+    console.log(req.params)
+    var woeid 
+    twitterClient.get(
+        `https://api.twitter.com/1.1/trends/closest.json?lat=${req.params.lat}&long=${req.params.lng}`, (err, apiResponse) => {
+            console.log(apiResponse || err)
+            res.json(apiResponse[0].woeid)
+            woeid = apiResponse[0].woeid
+            console.log(woeid)
+        })
+        // .then(
+        //     twitterClient.get(`https://api.twitter.com/1.1/trends/place.json?id=${woeid}`, (err, apiResponse) => {
+        //         console.log(apiResponse || err)
+        //        // res.json(apiResponse)
+        //     })
+        // )
+            
 })
 
 mongoose.connect(MONGODB_URI, (err) => {
