@@ -23,7 +23,9 @@ class TwitterFeed extends React.Component {
 		<div className="TwitterFeed ticker-wrap">
             <div className="ticker">Top Twitter Trends:
                 {this.state.twitterTrends.map((t, i) => {
-                    return <div className="ticker__item" key={i}>{t.name}</div>
+                    return <div className="ticker__item" key={i}>
+                        <a target="_blank" href={t.url}>{t.name}</a>
+                        </div>
                 }) }
                {/* <div className="ticker-item">Tweet</div> */}
             </div>
