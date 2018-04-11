@@ -26,7 +26,6 @@ class Profile extends React.Component {
 		const { name, email } = this.state.fields
 		return (
             <div className='Profile'>
-                <h1>GLOBALink Profile</h1>
                     <div className='EditProfile'>
                         <div className='row'>
                             <div className='column column-33 column-offset-33'>

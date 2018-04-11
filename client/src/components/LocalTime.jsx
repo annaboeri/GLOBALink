@@ -10,7 +10,6 @@ class LocalTime extends React.Component{
 
     componentDidMount(){
         httpClient.getLocalTime(this.props.randomCity.lat, this.props.randomCity.lng).then((serverResponse) => {
-            console.log(serverResponse.data)
             this.setState({
                 localTimezone: serverResponse.data
             })
@@ -18,7 +17,6 @@ class LocalTime extends React.Component{
     }
 
     render(){
-        console.log(this.state)
         const { localTimezone } = this.state   
             return(
                 <div className="LocalTime">

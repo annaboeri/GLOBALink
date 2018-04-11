@@ -6,7 +6,7 @@ import './GooglePlaces.css'
 class GooglePlaces extends React.Component {
 
     state = {
-        googlePlaces: ""
+        googlePlaces: []
     }
 
     componentDidMount(){
@@ -15,11 +15,16 @@ class GooglePlaces extends React.Component {
                 googlePlaces: serverResponse.data
             })
         })
-    } 
+    }
+    
+    componentWillUnmount(){
+        this.setState({
+            googlePlaces: []
+        })
+    }
 
 	render(){
-        console.log(this.state.googlePlaces) 
-        if(this.state.googlePlaces !== ""){
+        if(this.state.googlePlaces !== []){
         return (
             <div className="GooglePlaces">
                 <h3>Top Places:</h3>

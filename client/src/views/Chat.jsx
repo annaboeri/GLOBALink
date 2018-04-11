@@ -70,7 +70,6 @@ class Chat extends React.Component {
         console.log(this.state.allUsers)
         return (
 		<div className="Chat container">
-            <h1>GLOBALink Chat</h1>
             <div className="row">
                 <div className="column column-50">
                     <div className="chatBox">
@@ -92,11 +91,11 @@ class Chat extends React.Component {
                     <ul>
                         <h3>Online Users: {this.state.allUsers.length}</h3>
                             { this.state.allUsers.map((user, index) => {
-                            {if(this.props.user._id === user.id) {
+                            if(this.props.user._id === user.id) {
                                 return (
                                     <li key={index}>{user.name} (You)</li>     
                                 )
-                            }}
+                            }
                             return (
                                 <li key={index}>{user.name}</li>                            
                                 )

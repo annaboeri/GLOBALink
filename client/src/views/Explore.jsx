@@ -17,7 +17,6 @@ class Explore extends React.Component {
         const { randomCity } = this.state
         return (
             <div className='Explore container'>
-                <h1>GLOBALink</h1>
                 <div className="row">
                     <div className="column">
                         <div id='MapContainer'>

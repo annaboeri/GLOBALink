@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import httpClient from '../httpClient'
 import NavBar from './NavBar'
+import TitleBar from './TitleBar'
 import LogIn from '../views/LogIn'
 import LogOut from '../views/LogOut'
 import SignUp from '../views/SignUp'
@@ -35,6 +36,7 @@ class App extends React.Component {
 			<div className='App container'>
 
 				<NavBar currentUser={currentUser} />
+				<TitleBar />
 
 				<Switch>
 
