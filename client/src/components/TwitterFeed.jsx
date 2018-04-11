@@ -15,16 +15,17 @@ class TwitterFeed extends React.Component {
                 twitterTrends: serverResponse.data
             })
         })
-    }
+    } 
 
 	render(){ 
         return (
-		<div className='TwitterFeed Container'>
-            <ul>
-                {this.state.twitterTrends.map((t, i) => {
-                    return <li key={i}>{t.name}</li>
-                }) }
-            </ul>
+		<div className="TwitterFeed ticker-wrap">
+            <div className="ticker">
+                {/* {this.state.twitterTrends.map((t, i) => {
+                    return <div className="ticker-item" key={i}>{t.name}</div>
+                }) } */}
+                <div className="ticker-item">Tweet</div>
+            </div>
 		</div>
     )
     }
