@@ -11,7 +11,7 @@ class Weather extends React.Component{
         weatherIconSrc: ""
     }
 
-    componentWillMount(){
+    componentDidMount(){
         httpClient.getWeather(this.props.randomCity.city).then((serverResponse) => {
             const icon = serverResponse.data.weather[0].icon
             this.setState({

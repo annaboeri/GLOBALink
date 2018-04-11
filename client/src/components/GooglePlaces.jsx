@@ -6,13 +6,7 @@ import './GooglePlaces.css'
 class GooglePlaces extends React.Component {
 
     state = {
-        googlePlaces: []
-    }
-
-    componentWillMount(){
-        this.setState({
-            googlePlaces: []
-        })
+        googlePlaces: ""
     }
 
     componentDidMount(){
@@ -23,21 +17,23 @@ class GooglePlaces extends React.Component {
         })
     } 
 
-	render(){ 
-        if(this.state.googlePlaces !== []){
+	render(){
+        console.log(this.state.googlePlaces) 
+        if(this.state.googlePlaces !== ""){
         return (
-		<div className="GooglePlaces">
-            <h3>Top Places:</h3>
-            {this.state.googlePlaces.map((t, i) => {
-                return (
-                    <div>
-                        <img className="placeIcon" key={t.geometry.icon} src={t.icon} alt="place icon" />
-                        <div className="placeName" key={t.name}>{t.name}</div>
-                    </div>
-                )
-            }) }
-		</div>
-        )}
+            <div className="GooglePlaces">
+                <h3>Top Places:</h3>
+                {this.state.googlePlaces.map((t, i) => {
+                    return (
+                        <div>
+                            <img className="placeIcon" key={t.geometry.icon} src={t.icon} alt="place icon" />
+                            <div className="placeName" key={t.name}>{t.name}</div>
+                        </div>
+                    )
+                }) }
+            </div>
+            )
+        }
         return (
             <div className="GooglePlaces">
                 <h3>No Place Data Available</h3>
