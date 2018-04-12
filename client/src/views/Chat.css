@@ -6,3 +6,7 @@
     min-height: 300px;
     margin-bottom: 20px;
 }
+
+.chatBox .name {
+    font-weight: 800;
+}

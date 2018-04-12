@@ -75,7 +75,7 @@ class Chat extends React.Component {
                     <div className="chatBox">
                     { this.state.allMessages.map((message, index) => {
                         return (
-                            <div key={index}>{message.author}: {message.message}</div>
+                            <div key={index}><span className="name">{message.author}:</span> <span className="message">{message.message}</span></div>
                         )
                     })}
                     </div>
