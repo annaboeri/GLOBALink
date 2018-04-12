@@ -54,10 +54,10 @@ class Chat extends React.Component {
             })
         }
 
+        // when user submits message, send that message and user info to server
         this.sendMessage = (evt) => {
             evt.preventDefault()
             const socket = socketIOClient(this.state.endpoint)
-            // when
             socket.emit('broadcast-message', {
                 author: this.state.fields.username,
                 id: this.state.fields.username,
@@ -68,7 +68,6 @@ class Chat extends React.Component {
             })  
         }
     }
-
 
     render(){
         return (
