@@ -18,7 +18,6 @@ class Profile extends React.Component {
 	onFormSubmit(evt) {
 		evt.preventDefault()
 		httpClient.updateUser(this.state.fields, this.props.user._id).then(updatedUser => {
-            console.log('updated username:', updatedUser.name)
             this.setState({ fields: { name: updatedUser.name} })
             if(updatedUser) {
 				this.props.onUpdateSuccess(updatedUser)

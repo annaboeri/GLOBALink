@@ -72,15 +72,16 @@ app.get('/api/time/:lat/:lng', (req, res) => {
 })
 
 io.on('connection', socket => {
-    console.log("A new client has connected...")
+
+    // server gets new user when they connect and sends that user info to all clients
     socket.on('broadcast-user', (user) => {
-        console.log("user has been broadcasted to server")
         io.sockets.emit('broadcast-user', user)
     })
+    // servers gets new message from a client and sends that message to all clients
     socket.on('broadcast-message', (msg) => {
-        console.log('New message: ', msg)
         io.sockets.emit('broadcast-message', msg)
     })
+    // when a client disconnects, the server get that info
     socket.on('disconnect', () => {
         console.log('user disconnected')
     })

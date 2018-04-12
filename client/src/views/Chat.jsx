@@ -12,27 +12,29 @@ class Chat extends React.Component {
             allMessages: [],
             allUsers: []
         }  
-        
+
         this.componentDidMount = () => {
             const socket = socketIOClient(this.state.endpoint)
+            //  when component mounts, send user info to server 
             socket.emit('broadcast-user', {
                 name: this.state.fields.username,
                 id: this.state.fields.id
             })
-            socket.on('broadcast-user', function(user){
-                console.log("User sent to client", user)
-                addUser(user)
-            })
-        }
+            // when new user connects, get that info from the server and add state
+            socket.on('broadcast-user', function(user){              
+            addUser(user)
+        })
+    }
 
-        const addUser = user => {
-            this.setState({
-                allUsers: [...this.state.allUsers, user]
-            })
-        }
+    const addUser = user => {
+        this.setState({
+            allUsers: [...this.state.allUsers, user]
+        })
+    }
 
-        const socket = socketIOClient(this.state.endpoint);
-        socket.on('broadcast-message', function(msg){
+        const socket = socketIOClient(this.state.endpoint)
+        // when the server emits a message from another client, get the message and add to state
+        socket.on('broadcast-message', function(msg){            
             addMessage(msg)
         })
 
@@ -41,6 +43,7 @@ class Chat extends React.Component {
                 allMessages: [...this.state.allMessages, msg],
             })
         }
+
 
         this.onInputChange = (evt) => {
             this.setState({
@@ -54,6 +57,7 @@ class Chat extends React.Component {
         this.sendMessage = (evt) => {
             evt.preventDefault()
             const socket = socketIOClient(this.state.endpoint)
+            // when
             socket.emit('broadcast-message', {
                 author: this.state.fields.username,
                 id: this.state.fields.username,
@@ -67,7 +71,6 @@ class Chat extends React.Component {
 
 
     render(){
-        console.log(this.state.allUsers)
         return (
 		<div className="Chat container">
             <div className="row">
