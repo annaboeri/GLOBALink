@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Explore.css'
 import MapContainer from '../components/MapContainer'
 import TwitterFeed from '../components/TwitterFeed'
@@ -12,13 +13,28 @@ import {IoEarth} from 'react-icons/lib/io'
 
 class Explore extends React.Component {
     state = {
-        randomCity: cityData[ Math.floor(Math.random() * 7323)]
+        randomCity: this.randomCity(cityData, 7323)
+      }
+
+      randomCity(citiesArr, arrLength){
+          let city = citiesArr[Math.floor(Math.random() * arrLength)]
+          return city
+      }
+
+      handleIconClick(){
+          console.log('clicked')
+          this.setState({
+              randomCity: this.randomCity(cityData, 7323)
+          })
       }
 
     render(){
         const { randomCity } = this.state
+        console.log(randomCity)
         return (
             <div className='Explore container'>
+               <li><Link to="/explore">Explore</Link></li>
+               <h2 onClick={this.handleIconClick.bind(this)}>Click to explore a new city!</h2>
                 <div className="row">
                     <div className="column">
                         <div id='MapContainer'>
