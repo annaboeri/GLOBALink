@@ -14,15 +14,14 @@ import Profile from '../views/Profile'
 
 class App extends React.Component {
 	state = { 
-		currentUser: httpClient.getCurrentUser()
+		currentUser: httpClient.getCurrentUser(),
 	}
 
 	onLoginSuccess(user) {
 		this.setState({ currentUser: httpClient.getCurrentUser() })
 	}
 	onUpdateSuccess(updatedUser) {
-		console.log(updatedUser)
-		this.setState({ currentUser: httpClient.getCurrentUser() })
+		this.setState({ currentUser: updatedUser})
 	}
 
 	logOut() {
@@ -31,7 +30,6 @@ class App extends React.Component {
 	}
 	
 	render() {
-		console.log(currentUser)
 		const { currentUser } = this.state
 		return (
 			<div className='App container'>
