@@ -23,9 +23,7 @@ class Explore extends React.Component {
 
       handleIconClick(){
           console.log('clicked')
-          this.setState({
-              randomCity: this.randomCity(cityData, 7323)
-          })
+          this.forceUpdate()
       }
 
     render(){

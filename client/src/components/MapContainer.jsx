@@ -2,6 +2,7 @@ import React from 'react'
 import {Map, GoogleApiWrapper} from 'google-maps-react';
 
 class MapContainer extends React.Component{
+    
 
   render(){
     if (!this.props.google) {
@@ -16,10 +17,10 @@ class MapContainer extends React.Component{
         google={this.props.google}
         style={style}
         initialCenter={{
-          lat: this.props.randomCity.lat,
+          lat: this.props.randomCity.lat, 
           lng: this.props.randomCity.lng
         }}
-        zoom={16}
+        zoom={14}
         mapTypeId="terrain"
         id="map"
       >
