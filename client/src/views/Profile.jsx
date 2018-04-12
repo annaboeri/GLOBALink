@@ -24,7 +24,7 @@ class Profile extends React.Component {
     }
 	
 	render() {
-		const { name, email } = this.state.fields
+		const { name } = this.state.fields
 		return (
             <div className='Profile'>
                     <div className='EditProfile'>

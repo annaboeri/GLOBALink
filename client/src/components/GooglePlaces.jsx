@@ -30,9 +30,9 @@ class GooglePlaces extends React.Component {
                 <h3>Top Places:</h3>
                 {this.state.googlePlaces.map((t, i) => {
                     return (
-                        <div>
-                            <img className="placeIcon" key={t.geometry.icon} src={t.icon} alt="place icon" />
-                            <div className="placeName" key={t.name}>{t.name}</div>
+                        <div key={i}>
+                            <img className="placeIcon" src={t.icon} alt="place icon" />
+                            <div className="placeName">{t.name}</div>
                         </div>
                     )
                 }) }
