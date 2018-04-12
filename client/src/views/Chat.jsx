@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import socketIOClient from 'socket.io-client'
 import './Chat.css'
 
@@ -23,58 +24,70 @@ class Chat extends React.Component {
             // when new user connects, get that info from the server and add state
             socket.on('broadcast-user', function(user){              
             addUser(user)
-        })
-    }
+            })
+            this.scrollToBot()
+        }
+    
+        this.componentDidUpdate = () => {
+            this.scrollToBot()
+        }
+    
 
-    const addUser = user => {
-        this.setState({
-            allUsers: [...this.state.allUsers, user]
-        })
-    }
-
-        const socket = socketIOClient(this.state.endpoint)
-        // when the server emits a message from another client, get the message and add to state
-        socket.on('broadcast-message', function(msg){            
-            addMessage(msg)
-        })
-
-        const addMessage = msg => {
+        const addUser = user => {
             this.setState({
-                allMessages: [...this.state.allMessages, msg],
+                allUsers: [...this.state.allUsers, user]
             })
         }
 
-
-        this.onInputChange = (evt) => {
-            this.setState({
-                fields: {
-                    ...this.state.fields,
-                    [evt.target.name]: evt.target.value
-                }
-            })
-        }
-
-        // when user submits message, send that message and user info to server
-        this.sendMessage = (evt) => {
-            evt.preventDefault()
             const socket = socketIOClient(this.state.endpoint)
-            socket.emit('broadcast-message', {
-                author: this.state.fields.username,
-                id: this.state.fields.username,
-                message: this.state.fields.message
+            // when the server emits a message from another client, get the message and add to state
+            socket.on('broadcast-message', function(msg){            
+                addMessage(msg)
+
             })
-            this.setState({ 
-                fields: { username: this.props.user.name, id: this.props.user._id, message: '' }
-            })  
+
+            const addMessage = msg => {
+                this.setState({
+                    allMessages: [...this.state.allMessages, msg],
+                })
+            }
+
+
+            this.onInputChange = (evt) => {
+                this.setState({
+                    fields: {
+                        ...this.state.fields,
+                        [evt.target.name]: evt.target.value
+                    }
+                })
+            }
+
+            // when user submits message, send that message and user info to server
+            this.sendMessage = (evt) => {
+                evt.preventDefault()
+                const socket = socketIOClient(this.state.endpoint)
+                socket.emit('broadcast-message', {
+                    author: this.state.fields.username,
+                    id: this.state.fields.username,
+                    message: this.state.fields.message
+                })
+                this.setState({ 
+                    fields: { username: this.props.user.name, id: this.props.user._id, message: '' }
+                })  
+            }
         }
-    }
+        
+        scrollToBot() {
+            ReactDOM.findDOMNode(this.refs.chatBox).scrollTop = ReactDOM.findDOMNode(this.refs.chatBox).scrollHeight
+        }
+    
 
     render(){
         return (
 		<div className="Chat container">
             <div className="row">
                 <div className="column column-50">
-                    <div className="chatBox">
+                    <div className="chatBox" ref="chatBox">
                     { this.state.allMessages.map((message, index) => {
                         return (
                             <div key={index}><span className="name">{message.author}:</span> <span className="message">{message.message}</span></div>
