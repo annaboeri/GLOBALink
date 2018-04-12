@@ -20,9 +20,9 @@ class App extends React.Component {
 	onLoginSuccess(user) {
 		this.setState({ currentUser: httpClient.getCurrentUser() })
 	}
-	onBarSubmitSuccess(bar) {
-		this.setState({})
-
+	onUpdateSuccess(updatedUser) {
+		console.log(updatedUser)
+		this.setState({ currentUser: updatedUser })
 	}
 
 	logOut() {
@@ -61,7 +61,7 @@ class App extends React.Component {
 					
 					<Route path="/chat" render={(props) => {
 						return currentUser
-						? <Chat user={currentUser} />
+						? <Chat user={currentUser} {...props} onUpdateSuccess={this.onUpdateSuccess.bind(this)} />
 						: <Redirect to="/login" />
 					}} />
 					

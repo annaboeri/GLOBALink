@@ -35,14 +35,19 @@ httpClient.getCurrentUser = function() {
 }
 
 httpClient.updateUser = function(updatedCredentials, userId){
-	return this({ method: 'patch', url: `/api/users/${userId}`, data: updatedCredentials })
+	return this({ method: 'patch', url: `/api/users/${userId}`, data: updatedCredentials })	
+	.then((serverResponse) => {
+		const updatedUser = serverResponse.data.user
+		return updatedUser
+	})
 }
 
 
 httpClient.logIn = function(credentials) {
-	return this({ method: 'post', url: '/api/users/:id', data: credentials })
+	return this({ method: 'post', url: '/api/users/authenticate', data: credentials })
 		.then((serverResponse) => {
 			const token = serverResponse.data.token
+			console.log(token)
 			if(token) {
 				// sets token as an included header for all subsequent api requests
 				this.defaults.headers.common.token = this.setToken(token)
