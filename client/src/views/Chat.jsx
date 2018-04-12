@@ -26,12 +26,13 @@ class Chat extends React.Component {
             addUser(user)
             })
             this.scrollToBot()
+            this.messageInput.focus()
         }
-    
+        
         this.componentDidUpdate = () => {
             this.scrollToBot()
+            this.messageInput.focus()
         }
-    
 
         const addUser = user => {
             this.setState({
@@ -97,7 +98,12 @@ class Chat extends React.Component {
                         <form onChange={this.onInputChange.bind(this)} onSubmit={this.sendMessage.bind(this)}>
                         <fieldset>
                                 <label htmlFor="commentField">Message</label>
-                                <input type="text" placeholder="Message" name="message" value={this.state.fields.message} />              
+                                <input 
+                                    type="text"  
+                                    ref={(input) => { this.messageInput = input; }}
+                                    placeholder="Message" name="message" 
+                                    value={this.state.fields.message}
+                                />              
                                 <input className="button-primary" type="submit" value="Send Message" />
                         </fieldset>
                         </form>
