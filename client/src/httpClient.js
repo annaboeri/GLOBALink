@@ -31,6 +31,7 @@ httpClient.setToken = function(token) {
 httpClient.getCurrentUser = function() {
 	const token = this.getToken()
 	if(token) return jwtDecode(token)
+	console.log("get current user user:", jwtDecode(token))
 	return null
 }
 
@@ -47,7 +48,6 @@ httpClient.logIn = function(credentials) {
 	return this({ method: 'post', url: '/api/users/authenticate', data: credentials })
 		.then((serverResponse) => {
 			const token = serverResponse.data.token
-			console.log(token)
 			if(token) {
 				// sets token as an included header for all subsequent api requests
 				this.defaults.headers.common.token = this.setToken(token)

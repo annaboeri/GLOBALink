@@ -22,7 +22,7 @@ class App extends React.Component {
 	}
 	onUpdateSuccess(updatedUser) {
 		console.log(updatedUser)
-		this.setState({ currentUser: updatedUser })
+		this.setState({ currentUser: httpClient.getCurrentUser() })
 	}
 
 	logOut() {
@@ -31,6 +31,7 @@ class App extends React.Component {
 	}
 	
 	render() {
+		console.log(currentUser)
 		const { currentUser } = this.state
 		return (
 			<div className='App container'>
@@ -55,13 +56,13 @@ class App extends React.Component {
 
 					<Route path="/profile" render={(props) => {
 						return currentUser
-						? <Profile user={currentUser} />
+						? <Profile user={currentUser} onUpdateSuccess={this.onUpdateSuccess.bind(this)}/>
 						: <Redirect to="/login" />
 					}} />
 					
 					<Route path="/chat" render={(props) => {
 						return currentUser
-						? <Chat user={currentUser} {...props} onUpdateSuccess={this.onUpdateSuccess.bind(this)} />
+						? <Chat user={currentUser} />
 						: <Redirect to="/login" />
 					}} />
 					
