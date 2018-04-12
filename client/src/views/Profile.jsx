@@ -3,7 +3,7 @@ import httpClient from '../httpClient'
 
 class Profile extends React.Component {
     state = {
-		fields: { name: '', email: ''}
+		fields: { name: ''}
 	}
 
 	onInputChange(evt) {
@@ -17,8 +17,9 @@ class Profile extends React.Component {
 
 	onFormSubmit(evt) {
 		evt.preventDefault()
-		httpClient.updateUser(this.state.fields, this.props.user._id).then(user => {
-			this.setState({ fields: { name: '', email: '' } })
+		httpClient.updateUser(this.state.fields, this.props.user._id).then((serverResponse) => {
+            console.log('update user server response:', serverResponse.data.user.name)
+            this.setState({ fields: { name: serverResponse.data.user.name} })
 		})
     }
 	
@@ -29,11 +30,10 @@ class Profile extends React.Component {
                     <div className='EditProfile'>
                         <div className='row'>
                             <div className='column column-33 column-offset-33'>
-                                <h1>Edit Profile</h1>
+                                <h1>Edit Username</h1>
                                 <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
                                     <input type="text" placeholder={this.props.user.name} name="name" value={name} />
-                                    <input type="text" placeholder={this.props.user.email} name="email" value={email} />
-                                    <button>Edit Profile</button>
+                                    <button>Submit</button>
                                 </form>
                             </div>
                         </div>

@@ -9,8 +9,7 @@ class TitleBar extends React.Component {
 		return (
 			<div className='TitleBar'>
 				<h1>
-					GLOBALink 
-					<IoEarth className="EarthIcon" />
+					GLOBALink
 				</h1>
 			
 			</div>

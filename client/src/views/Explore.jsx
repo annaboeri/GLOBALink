@@ -6,6 +6,8 @@ import Weather from '../components/Weather'
 import GooglePlaces from '../components/GooglePlaces'
 import LocalTime from '../components/LocalTime'
 import cityData from '../cityData.json'
+import {IoEarth} from 'react-icons/lib/io'
+
 
 
 class Explore extends React.Component {
@@ -23,7 +25,7 @@ class Explore extends React.Component {
                             <MapContainer randomCity={randomCity} />
                         </div>
                         <div>
-                            <h2>{randomCity.city} </h2>
+                            <h2><IoEarth className="EarthIcon" />{randomCity.city} </h2>
                             <h3>Location: {randomCity.province}, {randomCity.country}</h3>
                             <h3>Population: {randomCity.pop.toLocaleString('en')}</h3>
                         </div>

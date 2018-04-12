@@ -28,6 +28,7 @@ module.exports = {
     // update an existing user
     update: (req, res) => {
         User.findById(req.params.id, (err, user) => {
+            console.log(user, req.body)
             Object.assign(user, req.body)
             user.save((err, updatedUser) => {
                 res.json({success:true, message: "User updated", user})

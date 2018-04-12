@@ -1,4 +1,3 @@
-
 #MapContainer{
     width: 1000px;
     height: 500px;
@@ -6,4 +5,11 @@
 
 .placesDiv {
     overflow: scroll;
+}
+
+.EarthIcon {
+    size: 30;
+    color: #606c76;
+    margin-bottom: 5px;
+
 }

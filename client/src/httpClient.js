@@ -34,12 +34,9 @@ httpClient.getCurrentUser = function() {
 	return null
 }
 
-httpClient.updateUser = function(updatedCredentials, userId ){
+httpClient.updateUser = function(updatedCredentials, userId){
 	return this({ method: 'patch', url: `/api/users/${userId}`, data: updatedCredentials })
-		.then((serverResponse) => {
-			(console.log(serverResponse))
-		})
-	}
+}
 
 
 httpClient.logIn = function(credentials) {
