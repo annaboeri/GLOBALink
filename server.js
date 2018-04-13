@@ -36,7 +36,16 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use('/api/users', usersRoutes)
 
+// makes call to open weather api to get local weather
+app.get('/api/weather/:city', (req, res) => {
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${req.params.city}&APPID=${weatherApiKey}&units=imperial`
+    const options = { method: 'get', url: apiUrl }
+    httpClient(options).then((apiResponse) => {
+        res.json(apiResponse.data)
+    })
+})
 
+// makes calls to twitter api to get local twitter trends
 app.get('/api/id/:lat/:lng', (req, res) => {
     twitterClient.get(
         `https://api.twitter.com/1.1/trends/closest.json?lat=${req.params.lat}&long=${req.params.lng}`, (err, apiResponse) => {
@@ -47,21 +56,14 @@ app.get('/api/id/:lat/:lng', (req, res) => {
         })        
 })
 
+// makes call to google places api to get nearby places
 app.get('/api/googleplaces/:lat/:lng', (req, res) => {
     httpClient.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${req.params.lat},${req.params.lng}&radius=500&key=${googlePlacesApiKey}`).then((apiResponse) => {
          res.json(apiResponse.data.results)
     })
 })
 
-app.get('/api/weather/:city', (req, res) => {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${req.params.city}&APPID=${weatherApiKey}&units=imperial`
-    const options = { method: 'get', url: apiUrl }
-    httpClient(options).then((apiResponse) => {
-        res.json(apiResponse.data)
-    })
-})
-
-
+// makes call to google maps timezone api to get local time
 app.get('/api/time/:lat/:lng', (req, res) => {
     const apiUrl = `https://maps.googleapis.com/maps/api/timezone/json?location=${req.params.lat},${req.params.lng}&timestamp=1331766000&key=AIzaSyDJ323ZJhLZohoR7aqMU4tqm2etoDbRPMA`
     const options = { method: 'get', url: apiUrl }
@@ -70,6 +72,14 @@ app.get('/api/time/:lat/:lng', (req, res) => {
         res.json(apiResponse.data.timeZoneId)
     })
 })
+
+// makes call to rest countries to get country info
+app.get('/api/country/:iso', (req, res) => {
+    httpClient.get(`https://restcountries.eu/rest/v2/alpha/${req.params.iso}`).then((apiResponse) => {
+        res.json(apiResponse.data)
+   })
+})
+
 
 io.on('connection', socket => {
 

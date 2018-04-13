@@ -6,6 +6,7 @@ import TwitterFeed from '../components/TwitterFeed'
 import Weather from '../components/Weather'
 import GooglePlaces from '../components/GooglePlaces'
 import LocalTime from '../components/LocalTime'
+import CountryInfo from '../components/CountryInfo'
 import cityData from '../cityData.json'
 import {IoAndroidGlobe, IoIosLocation, IoAndroidCompass, IoMap, IoPersonStalker, IoIosAlarm, IoIosTime} from 'react-icons/lib/io'
 
@@ -42,6 +43,9 @@ class Explore extends React.Component {
                             <h3><IoMap className="icon" /> {randomCity.province}, {randomCity.country}</h3>
                             <h3><IoPersonStalker className="icon" /> {randomCity.pop.toLocaleString('en')}</h3>
                             <LocalTime randomCity={randomCity} /> 
+                        </div>
+                        <div>
+                            <CountryInfo randomCity={randomCity} />
                         </div>
                 
                     </div>

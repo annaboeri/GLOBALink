@@ -19,6 +19,10 @@ httpClient.getLocalTime = function(lat, lng) {
 	return this({method: 'get', url: `/api/time/${lat}/${lng}`})
 }
 
+httpClient.getCountryInfo = function(iso) {
+	return this({method: 'get', url: `/api/country/${iso}`})
+}
+
 httpClient.getToken = function() {
 	return localStorage.getItem('token')
 }
