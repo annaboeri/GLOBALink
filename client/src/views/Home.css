@@ -1,3 +1,15 @@
-h2 {
-    padding-left: 18px;
+.Home {
+  background-image: url('../public/street.jpg');
+  background-size: cover;
+  height: 688.89px;
+  text-align: center;
+  vertical-align: middle;
+ 
+}
+
+.Home h2 {
+    padding: 300px;
+    color: white;
+    font-weight: 800;
+    background-color: rgba(0, 0, 0, .5);
 }

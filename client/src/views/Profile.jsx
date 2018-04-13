@@ -32,7 +32,7 @@ class Profile extends React.Component {
                     <div className='EditProfile'>
                         <div className='row'>
                             <div className='column column-33 column-offset-33'>
-                                <h1>Edit Username</h1>
+                                <h2>Edit Username</h2>
                                 <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
                                     <input type="text" placeholder={this.props.user.name} name="name" value={name} />
                                     <button>Submit</button>
