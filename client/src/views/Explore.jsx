@@ -38,16 +38,23 @@ class Explore extends React.Component {
                         <div id='MapContainer'>
                             <MapContainer randomCity={randomCity} />
                         </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="column">
                         <div className="cityInfoContainer">
                             <h2><IoIosLocation className="icon" />{randomCity.city} </h2>
                             <h3><IoMap className="icon" /> {randomCity.province}, {randomCity.country}</h3>
                             <h3><IoPersonStalker className="icon" /> {randomCity.pop.toLocaleString('en')}</h3>
                             <LocalTime randomCity={randomCity} /> 
                         </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="column">
                         <div>
                             <CountryInfo randomCity={randomCity} />
                         </div>
-                
                     </div>
                 </div>
                 <div className="row">

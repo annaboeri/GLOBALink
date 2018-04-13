@@ -17,7 +17,6 @@ class CountryInfo extends React.Component {
     }
 
     componentDidMount(){
-        console.log(this.props.randomCity.iso3.toLowerCase())
         httpClient.getCountryInfo(this.props.randomCity.iso3.toLowerCase()).then((serverResponse) => {
             this.setState({
                 country: {
@@ -44,15 +43,17 @@ class CountryInfo extends React.Component {
     }
 
 	render(){
-        console.log(this.state)
         return (
-            <div className="CountryInfo">
-                <h3>Country Info:</h3>
+            <div className="CountryInfo row">
+                <div className="column">
+                    <img className="flagImg" src={this.state.country.flagImg} alt="Country Flag" />
+                </div>
+                <div className="column">
                     <div>Country: {this.state.country.name}</div>
                     <div>Capital: {this.state.country.capital}</div>
                     <div>Currency: {this.state.country.currency}</div>
                     <div>Language: {this.state.country.language}</div>
-                    <img className="flagImg" src={this.state.country.flagImg} />
+                </div>
             </div>
             )
     }
