@@ -4,8 +4,6 @@ import './CityInfo.css'
 import {IoAndroidGlobe, IoIosLocation, IoAndroidCompass, IoMap, IoPersonStalker, IoIosAlarm, IoIosTime} from 'react-icons/lib/io'
 
 
-
-
 class CityInfo extends React.Component {
     state = {
         randomCity: "",
@@ -23,10 +21,13 @@ class CityInfo extends React.Component {
     render(){
         const { randomCity, population } = this.state
         return (
-            <div className="cityInfo row">
+            <div className="cityInfo">
+            <div className="row">
                 <div className="column">
                     <h2><IoIosLocation />{randomCity.city} </h2>
                 </div>
+            </div>
+            <div className="row">
                 <div className="column">
                     <h3><IoMap /> {randomCity.province}, {randomCity.country}</h3>
                 </div>
@@ -36,6 +37,7 @@ class CityInfo extends React.Component {
                 <div className="column">
                     <LocalTime randomCity={randomCity} /> 
                 </div>
+            </div>
    
             </div>
         )
