@@ -1,5 +1,6 @@
 #MapContainer{
     height: 500px;
+    position: relative;
 }
 
 .placesDiv {
