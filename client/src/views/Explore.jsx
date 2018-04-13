@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Explore.css'
+import CityInfo from '../components/CityInfo'
 import MapContainer from '../components/MapContainer'
 import TwitterFeed from '../components/TwitterFeed'
 import Weather from '../components/Weather'
 import GooglePlaces from '../components/GooglePlaces'
-import LocalTime from '../components/LocalTime'
 import CountryInfo from '../components/CountryInfo'
 import cityData from '../cityData.json'
 import {IoAndroidGlobe, IoIosLocation, IoAndroidCompass, IoMap, IoPersonStalker, IoIosAlarm, IoIosTime} from 'react-icons/lib/io'
@@ -29,7 +29,6 @@ class Explore extends React.Component {
 
     render(){
         const { randomCity } = this.state
-        console.log(randomCity)
         return (
             <div className='Explore container'>
                <h3 onClick={this.handleClick.bind(this)}>Click here to explore a new city!</h3>
@@ -42,12 +41,7 @@ class Explore extends React.Component {
                 </div>
                 <div className="row">
                     <div className="column">
-                        <div className="cityInfoContainer">
-                            <h2><IoIosLocation className="icon" />{randomCity.city} </h2>
-                            <h3><IoMap className="icon" /> {randomCity.province}, {randomCity.country}</h3>
-                            <h3><IoPersonStalker className="icon" /> {randomCity.pop.toLocaleString('en')}</h3>
-                            <LocalTime randomCity={randomCity} /> 
-                        </div>
+                        <CityInfo randomCity={randomCity} />
                     </div>
                 </div>
                 <div className="row">
@@ -57,6 +51,7 @@ class Explore extends React.Component {
                         </div>
                     </div>
                 </div>
+
                 <div className="row">
                     <div className="column">
                         <TwitterFeed randomCity={randomCity}/>

@@ -3,20 +3,8 @@
     height: 500px;
 }
 
-.cityInfoContainer {
-    border: 1px solid #606c76;
-    max-width: 500px;
-    margin: 20px 0;
-    padding: 20px;
-}
-
 .placesDiv {
     overflow: scroll;
 }
 
-.icon {
-    size: 50;
-    color: #606c76;
-    margin-bottom: 5px;
 
-}
