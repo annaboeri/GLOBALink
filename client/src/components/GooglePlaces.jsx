@@ -24,10 +24,11 @@ class GooglePlaces extends React.Component {
     }
 
 	render(){
-        if(this.state.googlePlaces !== []){
+        console.log(this.state.googlePlaces)
+        if(this.state.googlePlaces.length > 0){
         return (
             <div className="GooglePlaces">
-                <h3>Top Places:</h3>
+                <h3>Popular Places:</h3>
                 {this.state.googlePlaces.map((t, i) => {
                     return (
                         <div key={i}>
@@ -38,12 +39,13 @@ class GooglePlaces extends React.Component {
                 }) }
             </div>
             )
+        } else {
+            return (
+                <div className="GooglePlaces">
+                    <h3>No Place Data Available</h3>
+                </div>
+            )
         }
-        return (
-            <div className="GooglePlaces">
-                <h3>No Place Data Available</h3>
-            </div>
-        )
     }
 }
 

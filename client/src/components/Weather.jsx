@@ -30,9 +30,9 @@ class Weather extends React.Component{
                 <div className="Weather">
                     <h3>Current Weather:</h3>
                     <img className="weatherIcon" src={weatherIconSrc} alt="weather icon" />
-                    <div className="weatherType">{cityWeather}</div>
-                    <div>{cityTemp}&deg; F</div>
-                    <div>{cityHumidity}% Humidity</div>
+                    <div className="weatherInfo">{cityWeather}</div>
+                    <div className="weatherInfo">{cityTemp}&deg; F</div>
+                    <div className="weatherInfo">{cityHumidity}% Humidity</div>
                 </div>
             )
         }

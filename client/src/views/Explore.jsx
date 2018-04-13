@@ -21,9 +21,8 @@ class Explore extends React.Component {
           return city
       }
 
-      handleIconClick(){
-          console.log('clicked')
-          this.forceUpdate()
+      handleClick(){
+          window.location.reload()
       }
 
     render(){
@@ -31,8 +30,7 @@ class Explore extends React.Component {
         console.log(randomCity)
         return (
             <div className='Explore container'>
-               <li><Link to="/explore">Explore</Link></li>
-               <h2 onClick={this.handleIconClick.bind(this)}>Click to explore a new city!</h2>
+               <h3 onClick={this.handleClick.bind(this)}>Click here to explore a new city!</h3>
                 <div className="row">
                     <div className="column">
                         <div id='MapContainer'>
