@@ -32,6 +32,7 @@ mongoose.connect(MONGODB_URI, (err) => {
     console.log(err || 'Connected to MongoDB')
 })
 
+app.use(express.static(`${__dirname}/client/build`))
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use('/api/users', usersRoutes)
@@ -95,6 +96,10 @@ io.on('connection', socket => {
     socket.on('disconnect', () => {
         console.log('user disconnected')
     })
+})
+
+app.use('*', (req, res) => {
+	res.sendFile(`${__dirname}/client/build/index.html`)
 })
 
 server.listen(PORT, (err) => {
