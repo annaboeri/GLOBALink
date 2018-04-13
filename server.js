@@ -10,7 +10,7 @@ const
     MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/project-4-api'
     axios = require('axios'),
     httpClient = axios.create(),
-    PORT = process.env.port || 3001,
+    PORT = process.env.PORT || 3001,
     usersRoutes = require('./routes/users.js')
 
 const weatherApiKey = process.env.WEATHER_API_KEY
