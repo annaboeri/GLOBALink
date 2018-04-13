@@ -4,7 +4,6 @@ const
     app = express(),
     server = require('http').createServer(app),
     io = require('socket.io')(server),
-    logger = require ('morgan'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     Twitter = require('twitter'),
@@ -33,7 +32,6 @@ mongoose.connect(MONGODB_URI, (err) => {
 })
 
 app.use(express.static(`${__dirname}/client/build`))
-app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use('/api/users', usersRoutes)
 
