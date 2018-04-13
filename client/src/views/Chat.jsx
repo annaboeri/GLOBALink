@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import socketIOClient from 'socket.io-client'
 import './Chat.css'
-import Profile from './Profile'
 
 class Chat extends React.Component {
     constructor(props){
@@ -30,6 +29,7 @@ class Chat extends React.Component {
             this.messageInput.focus()
         }
         
+        //  scrolls to bottom of chat window when each new message is added
         this.componentDidUpdate = () => {
             this.scrollToBot()
             this.messageInput.focus()
@@ -122,7 +122,6 @@ class Chat extends React.Component {
                                 <li key={index}>{user.name}</li>                            
                                 )
                             })}
-                          {/* <Profile user={this.props.user} /> */}
                     </ul>
                 </div>
             </div>

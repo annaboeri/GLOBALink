@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './Explore.css'
 import CityInfo from '../components/CityInfo'
 import MapContainer from '../components/MapContainer'

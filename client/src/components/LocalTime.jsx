@@ -1,7 +1,7 @@
 import React from 'react'
 import httpClient from '../httpClient'
 import Clock from 'react-live-clock'
-import {IoIosAlarm, IoIosTime} from 'react-icons/lib/io'
+import {IoIosTime} from 'react-icons/lib/io'
 
 
 class LocalTime extends React.Component{

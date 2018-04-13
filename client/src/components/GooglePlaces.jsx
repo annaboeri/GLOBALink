@@ -24,7 +24,6 @@ class GooglePlaces extends React.Component {
     }
 
 	render(){
-        console.log(this.state.googlePlaces)
         if(this.state.googlePlaces.length > 0){
         return (
             <div className="GooglePlaces">

@@ -20,7 +20,8 @@ class Profile extends React.Component {
 		httpClient.updateUser(this.state.fields, this.props.user._id).then(updatedUser => {
             this.setState({ fields: { name: updatedUser.name} })
             if(updatedUser) {
-				this.props.onUpdateSuccess(updatedUser)
+                this.props.onUpdateSuccess(updatedUser)
+                
 			}
         })    
     }

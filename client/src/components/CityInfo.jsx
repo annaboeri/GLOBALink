@@ -1,7 +1,7 @@
 import React from 'react'
 import LocalTime from './LocalTime'
 import './CityInfo.css'
-import {IoAndroidGlobe, IoIosLocation, IoAndroidCompass, IoMap, IoPersonStalker, IoIosAlarm, IoIosTime} from 'react-icons/lib/io'
+import {IoIosLocation, IoMap, IoPersonStalker} from 'react-icons/lib/io'
 
 
 class CityInfo extends React.Component {
@@ -11,7 +11,6 @@ class CityInfo extends React.Component {
       }
 
       componentDidMount() {
-          console.log(this.props)
           this.setState({
               randomCity: this.props.randomCity,
               population: this.props.randomCity.pop.toLocaleString('en')
