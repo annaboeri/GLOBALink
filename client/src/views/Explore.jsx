@@ -60,11 +60,13 @@ class Explore extends React.Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="column">
+                    <div className="column column-20 weatherDiv">
                         <Weather randomCity={randomCity} />
                     </div>
-                    <div className="placesDiv column column-80">
-                        <GooglePlaces randomCity={randomCity} />
+                    <div className="column placesCol">
+                        <div className="placesDiv column column-80">
+                            <GooglePlaces randomCity={randomCity} />
+                        </div>
                     </div>
                 </div>
             </div>

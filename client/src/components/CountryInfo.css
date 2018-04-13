@@ -9,3 +9,7 @@
     width: 200px;
     border: 1px solid black;
 }
+
+.CountryInfo span {
+    font-weight: 800;
+}

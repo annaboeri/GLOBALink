@@ -44,15 +44,17 @@ class CountryInfo extends React.Component {
 
 	render(){
         return (
-            <div className="CountryInfo row">
-                <div className="column">
-                    <img className="flagImg" src={this.state.country.flagImg} alt="Country Flag" />
-                </div>
-                <div className="column">
-                    <div>Country: {this.state.country.name}</div>
-                    <div>Capital: {this.state.country.capital}</div>
-                    <div>Currency: {this.state.country.currency}</div>
-                    <div>Language: {this.state.country.language}</div>
+            <div className="CountryInfo">
+                <div className="row">
+                    <div className="column">
+                        <img className="flagImg" src={this.state.country.flagImg} alt="Country Flag" />
+                    </div>
+                    <div className="column">
+                        <div><span>Country: </span>{this.state.country.name}</div>
+                        <div><span>Capital: </span>{this.state.country.capital}</div>
+                        <div><span>Currency: </span>{this.state.country.currency}</div>
+                        <div><span>Language: </span>{this.state.country.language}</div>
+                    </div>
                 </div>
             </div>
             )

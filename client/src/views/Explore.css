@@ -1,10 +1,20 @@
 #MapContainer{
-    width: 1000px;
     height: 500px;
 }
 
 .placesDiv {
     overflow: scroll;
+    min-width: 775px;
+    margin-left: 40px;
+}
+
+.weatherDiv {
+    margin-right: 70px;
+}
+
+.placesCol {
+    min-width: 700px;
+
 }
 
 .globeIcon {
