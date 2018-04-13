@@ -7,7 +7,7 @@ import Weather from '../components/Weather'
 import GooglePlaces from '../components/GooglePlaces'
 import LocalTime from '../components/LocalTime'
 import cityData from '../cityData.json'
-import {IoEarth, IoIosLocation} from 'react-icons/lib/io'
+import {IoAndroidGlobe, IoIosLocation, IoAndroidCompass, IoMap, IoPersonStalker, IoIosAlarm, IoIosTime} from 'react-icons/lib/io'
 
 
 
@@ -37,12 +37,13 @@ class Explore extends React.Component {
                         <div id='MapContainer'>
                             <MapContainer randomCity={randomCity} />
                         </div>
-                        <div>
+                        <div className="cityInfoContainer">
                             <h2><IoIosLocation className="icon" />{randomCity.city} </h2>
-                            <h3>Location: {randomCity.province}, {randomCity.country}</h3>
-                            <h3>Population: {randomCity.pop.toLocaleString('en')}</h3>
+                            <h3><IoMap className="icon" /> {randomCity.province}, {randomCity.country}</h3>
+                            <h3><IoPersonStalker className="icon" /> {randomCity.pop.toLocaleString('en')}</h3>
+                            <LocalTime randomCity={randomCity} /> 
                         </div>
-                        <LocalTime randomCity={randomCity} /> 
+                
                     </div>
                 </div>
                 <div className="row">

@@ -1,6 +1,8 @@
 import React from 'react'
 import httpClient from '../httpClient'
 import Clock from 'react-live-clock'
+import {IoIosAlarm, IoIosTime} from 'react-icons/lib/io'
+
 
 class LocalTime extends React.Component{
 
@@ -20,8 +22,7 @@ class LocalTime extends React.Component{
         const { localTimezone } = this.state   
             return(
                 <div className="LocalTime">
-                    <h3>Current Time: 
-                        <Clock format={' h:mm:ss a'} ticking={true} timezone={localTimezone} />
+                    <h3><IoIosTime /><Clock format={' h:mm:ss a'} ticking={true} timezone={localTimezone} />
                     </h3>                    
                 </div>
             )
