@@ -18,7 +18,6 @@ const bearerToken = process.env.TWITTER_BEARER_ACCESS_TOKEN
 const consumerKey = process.env.TWITTER_CONSUMER_KEY
 const consumerSecret = process.env.TWITTER_CONSUMER_SECRET
 const googlePlacesApiKey = process.env.GOOGLE_PLACES_API_KEY
-const worldtimeApiKey = process.env.WORLDTIME_API_KEY
 
 const twitterClient = new Twitter({
     consumer_key: consumerKey,
