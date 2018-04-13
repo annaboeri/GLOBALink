@@ -8,7 +8,7 @@ import Weather from '../components/Weather'
 import GooglePlaces from '../components/GooglePlaces'
 import CountryInfo from '../components/CountryInfo'
 import cityData from '../cityData.json'
-import {IoAndroidGlobe, IoIosLocation, IoAndroidCompass, IoMap, IoPersonStalker, IoIosAlarm, IoIosTime} from 'react-icons/lib/io'
+import {IoAndroidGlobe} from 'react-icons/lib/io'
 
 
 
@@ -31,7 +31,9 @@ class Explore extends React.Component {
         const { randomCity } = this.state
         return (
             <div className='Explore container'>
-               <h3 onClick={this.handleClick.bind(this)}>Click here to explore a new city!</h3>
+               <h3><IoAndroidGlobe onClick={this.handleClick.bind(this)} size={60}/>
+                    Click the globe to explore a new city!
+                </h3>
                 <div className="row">
                     <div className="column">
                         <div id='MapContainer'>
