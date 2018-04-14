@@ -78,8 +78,6 @@ app.get('/api/country/:iso', (req, res) => {
    })
 })
 
-const host = location.origin;
-io.connect(host, {port: PORT, transports: ["websocket"]});
 
 io.on('connection', socket => {
 
