@@ -8,7 +8,7 @@ class Chat extends React.Component {
         super(props)
 
         this.state = {
-            endpoint: "https://project-4-globalink.herokuapp.com/" || "http://localhost:3001",
+            endpoint: "http://localhost:3001",
             fields: { username: this.props.user.name, id: this.props.user._id, message: ''},
             allMessages: [],
             allUsers: []
