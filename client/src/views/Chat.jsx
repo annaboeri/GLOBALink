@@ -4,11 +4,12 @@ import socketIOClient from 'socket.io-client'
 import './Chat.css'
 
 class Chat extends React.Component {
+
     constructor(props){
         super(props)
 
         this.state = {
-            endpoint: "http://localhost:3001",
+            endpoint: this.getEnvironmentUrl(),
             fields: { username: this.props.user.name, id: this.props.user._id, message: ''},
             allMessages: [],
             allUsers: []
@@ -79,8 +80,17 @@ class Chat extends React.Component {
             }
         }
         
-        scrollToBot() {
+        scrollToBot = () => {
             ReactDOM.findDOMNode(this.refs.chatBox).scrollTop = ReactDOM.findDOMNode(this.refs.chatBox).scrollHeight
+        }
+
+
+        getEnvironmentUrl = () => {
+            console.log(window.location)
+            const host = window.location.host
+            const domain = '.com'
+            const dev = 'http://localhost:3001'
+            return host.match(domain) ? window.location.origin : dev
         }
     
 
