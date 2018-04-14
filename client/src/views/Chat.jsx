@@ -8,14 +8,14 @@ class Chat extends React.Component {
         super(props)
 
         this.state = {
-            endpoint: process.env.PORT || "http://localhost:3001",
+            endpoint: "http://project-4-globalink.herokuapp.com" || "http://localhost:3001",
             fields: { username: this.props.user.name, id: this.props.user._id, message: ''},
             allMessages: [],
             allUsers: []
         }  
 
         this.componentDidMount = () => {
-            const socket = io(this.state.endpoint)
+            const socket = io()
             //  when component mounts, send user info to server 
             socket.emit('broadcast-user', {
                 name: this.state.fields.username,
@@ -41,7 +41,7 @@ class Chat extends React.Component {
             })
         }
 
-            const socket = io(this.state.endpoint)
+            const socket = io()
             // when the server emits a message from another client, get the message and add to state
             socket.on('broadcast-message', function(msg){            
                 addMessage(msg)
@@ -67,7 +67,7 @@ class Chat extends React.Component {
             // when user submits message, send that message and user info to server
             this.sendMessage = (evt) => {
                 evt.preventDefault()
-                const socket = io(this.state.endpoint)
+                const socket = io()
                 socket.emit('broadcast-message', {
                     author: this.state.fields.username,
                     id: this.state.fields.username,
