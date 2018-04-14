@@ -78,9 +78,8 @@ app.get('/api/country/:iso', (req, res) => {
    })
 })
 
-
+// web socket setup
 io.on('connection', socket => {
-
     // server gets new user when they connect and sends that user info to all clients
     socket.on('broadcast-user', (user) => {
         io.sockets.emit('broadcast-user', user)
