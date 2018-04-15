@@ -1,17 +1,40 @@
 
+.Chat h2 {
+    font-size: 30px;
+}
+
 .chatBox {
-    border: 1px solid gray;
+    border: 1px solid #606c76;
     border-radius: 3px;
     padding: 20px;
+    height: 400px;
+    max-width: 800px;
+    margin-bottom: 20px;
+    overflow: scroll;
+    font-size: 18px;
+}
+
+.usersBox {
+    border: 1px solid #606c76 ;
+    background-color: rgba(1,82,73, .05); 
+    border-radius: 3px;
+    padding: 20px 30px;
+    font-size: 18px;
     height: 300px;
-    max-width: 500px;
+    max-width: 300px;
     margin-bottom: 20px;
     overflow: scroll;
 }
 
+.usersBox span {
+    color: #015249; 
+}
+
 .chatBox .name {
     font-weight: 800;
-    /* color: #ab5dda; */
+    color: #57BC90; 
+    margin-left: 5px;
+    margin-bottom: 10px;
 }
 
 input.send-button {
@@ -20,11 +43,11 @@ input.send-button {
 }
 
 .chatCol {
-    margin: 20px;
-    padding: 20px;
+    margin: 20px 70px;
 }
 
 .usersCol {
-    margin: 20px;
-    padding: 50px;
+    margin: 20px 30px;
+    padding: 100px;
+    overflow: scroll;
 }

@@ -4,7 +4,9 @@
     height: 250px;
     padding: 20px 0;
     margin-top: 30px;
-    border: 2px solid #ab5dda;
+    background-color: rgba(1, 82, 73, .1);
+    border: 1px solid rgba(1,82,73, .7); 
+    border-radius: 3px;
     text-align: center;
 }
 

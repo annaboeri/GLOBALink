@@ -23,18 +23,22 @@
   }
   .tickerWrap {
     overflow: hidden;
-    height: 4rem;
+    height: 5rem;
     background-color: white;
-    border: 2px solid #ab5dda; 
+    border: 1px solid rgba(1,82,73, .7); 
+    border-radius: 3px;
     padding-left: 100%;
     box-sizing: content-box;
+    margin: 20px 0;
+    background-color: rgba(1,82,73, .1)
   }
 
    .ticker {
     display: inline-block;
-    height: 4rem;
-    line-height: 4rem;
+    height: 5rem;
+    line-height: 5rem;
     font-size: 2rem;
+    color: #606c76;
     white-space: nowrap;
     box-sizing: content-box;
     -webkit-animation-iteration-count: infinite;
@@ -51,6 +55,15 @@
     display: inline-block;
     padding: 0 2rem;
     font-size: 2rem;
+  }
+
+  .tickerItem  a {
+    color: rgba(1,82,73, .7); 
+  }
+
+  .tickerItem  a:hover {
     color: #606c76;
   }
+
+
   

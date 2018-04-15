@@ -47,13 +47,14 @@ class CountryInfo extends React.Component {
             <div className="CountryInfo">
                 <div className="row">
                     <div className="column">
-                        <img className="flagImg" src={this.state.country.flagImg} alt="Country Flag" />
-                    </div>
-                    <div className="column">
+                        <h3>Country Facts:</h3>
                         <div className="Info"><span>Country: </span>{this.state.country.name}</div>
                         <div className="Info"><span>Capital: </span>{this.state.country.capital}</div>
                         <div className="Info"><span>Currency: </span>{this.state.country.currency}</div>
                         <div className="Info"><span>Language: </span>{this.state.country.language}</div>
+                    </div>
+                    <div className="column">
+                        <img className="flagImg" src={this.state.country.flagImg} alt="Country Flag" />
                     </div>
                 </div>
             </div>

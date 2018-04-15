@@ -47,17 +47,18 @@ class Explore extends React.Component {
                 </div>
                 <div className="row">
                     <div className="column">
+                        <TwitterFeed randomCity={randomCity}/>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="column">
                         <div>
                             <CountryInfo randomCity={randomCity} />
                         </div>
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className="column">
-                        <TwitterFeed randomCity={randomCity}/>
-                    </div>
-                </div>
+           
                 <div className="row">
                     <div className="column column-20 weatherDiv">
                         <Weather randomCity={randomCity} />

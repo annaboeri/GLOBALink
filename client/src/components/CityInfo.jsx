@@ -23,17 +23,17 @@ class CityInfo extends React.Component {
             <div className="cityInfo">
             <div className="row">
                 <div className="column">
-                    <h2><IoIosLocation />{randomCity.city} </h2>
+                    <h2><IoIosLocation /><span>{randomCity.city}</span></h2>
                 </div>
             </div>
             <div className="row">
-                <div className="column column-50">
+                <div className="column column-40">
                     <h3><IoMap /> {randomCity.province}, {randomCity.country}</h3>
                 </div>
-                <div className="column column-25">
+                <div className="column column-30">
                     <h3><IoPersonStalker /> {population}</h3>
                 </div>
-                <div className="column column-25">
+                <div className="column column-30">
                     <LocalTime randomCity={randomCity} /> 
                 </div>
             </div>

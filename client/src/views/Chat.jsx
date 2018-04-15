@@ -96,9 +96,10 @@ class Chat extends React.Component {
     render(){
         return (
 		<div className="Chat container">
+        <h2>Chat with other users around the world!</h2>
             <div className="row">
-                <div className="column column-50">
-                    <div className="chatCol chatBox" ref="chatBox">
+                <div className="chatCol column column-50">
+                    <div className="chatBox" ref="chatBox">
                     { this.state.allMessages.map((message, index) => {
                         return (
                             <div key={index}><span className="name">{message.author}:</span> <span className="message">{message.message}</span></div>
@@ -119,19 +120,21 @@ class Chat extends React.Component {
                         </form>
                 </div>
                 <div className="usersCol column column-50">
-                    <ul>
-                        <h3>Online Users: {this.state.allUsers.length}</h3>
-                            { this.state.allUsers.map((user, index) => {
-                            if(this.props.user._id === user.id) {
+                    <div className="usersBox">
+                        <ul>
+                            <h3>Online Users: <span>{this.state.allUsers.length}</span></h3>
+                                { this.state.allUsers.map((user, index) => {
+                                if(this.props.user._id === user.id) {
+                                    return (
+                                        <li key={index}>{user.name} (You)</li>     
+                                    )
+                                }
                                 return (
-                                    <li key={index}>{user.name} (You)</li>     
-                                )
-                            }
-                            return (
-                                <li key={index}>{user.name}</li>                            
-                                )
-                            })}
-                    </ul>
+                                    <li key={index}>{user.name}</li>                            
+                                    )
+                                })}
+                        </ul>
+                    </div>
                 </div>
             </div>
 		</div>
