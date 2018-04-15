@@ -20,25 +20,6 @@
 - JSON Web Token
 - Milligram CSS
 
-### Dependencies
-###### Back End: 
-- express
-- axios
-- bcrypt-nodejs
-- body-parser
-- dotenv
-- jsonwebtoken
-- mongoose
-- socket.io
-- twitter
-
-###### Front End: 
-- axios
-- google-maps-react
-- jwt-decode
-- react
-- react-router-dom
-- socket.io-client
 
 ### APIs Used
 - Google Maps via the google-maps-react library
@@ -49,9 +30,14 @@
 - RESTCountries API
 
 ### Future Work
+- Add flash messages on log in and sign up
+- Show list of places users have "explored" on their profile
+- Add user's geolocation and display users' location in chat
+- Allow users to upload avatar images that display in chat
+
 
 ### Wireframes
-![wireframe](/Users/annaboeri/wdi-56/w12/project-4-api/images/Screen Shot 2018-04-14 at 7.49.37 PM.png)
-![wireframe](/Users/annaboeri/wdi-56/w12/project-4-api/images/Screen Shot 2018-04-14 at 7.49.51 PM.png)
-![wireframe](/Users/annaboeri/wdi-56/w12/project-4-api/images/Screen Shot 2018-04-14 at 7.50.25 PM.png)
-![wireframe](/Users/annaboeri/wdi-56/w12/project-4-api/images/Screen Shot 2018-04-14 at 7.51.54 PM.png)
+![wireframe](images/Screen Shot 2018-04-14 at 7.49.37 PM.png)
+![wireframe](images/Screen Shot 2018-04-14 at 7.49.51 PM.png)
+![wireframe](images/Screen Shot 2018-04-14 at 7.50.25 PM.png)
+![wireframe](images/Screen Shot 2018-04-14 at 7.51.54 PM.png)
