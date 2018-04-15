@@ -17,6 +17,10 @@
   background-color: rgba(87,188,144, .7);
 }
 
+.text h2 {
+  font-size: 30px;
+}
+
 .text a {
   color: #77C9D4;
 

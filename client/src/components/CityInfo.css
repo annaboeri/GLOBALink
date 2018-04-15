@@ -1,8 +1,11 @@
 .cityInfo {
-    background-color: rgba(1, 82, 73, .2);
+    /* background-color: rgba(1, 82, 73, .2); */
+    background-color: rgba(87,188,144, .7);
+    color: white;
+    /* color: #606c76; */
+    text-shadow: 0.6px 0.6px#015249;
     border: 2px solid rgba(1, 82, 73, .25);
     border-radius: 3px;
-    color: #606c76;
     margin: 20px 0;
     padding: 20px 50px;
 }
