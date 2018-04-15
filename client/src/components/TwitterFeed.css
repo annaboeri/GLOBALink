@@ -25,12 +25,12 @@
     overflow: hidden;
     height: 5rem;
     background-color: white;
-    border: 1px solid rgba(1,82,73, .7); 
+    background-color: rgba(1,82,73, .08);
+    border: 1px solid rgba(1,82,73, .2); 
     border-radius: 3px;
     padding-left: 100%;
     box-sizing: content-box;
     margin: 20px 0;
-    background-color: rgba(1,82,73, .1)
   }
 
    .ticker {
