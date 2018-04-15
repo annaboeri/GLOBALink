@@ -16,6 +16,7 @@ httpClient.getGooglePlacesData = function(lat, lng) {
 }
 
 httpClient.getLocalTime = function(lat, lng) {
+	console.log("getting time")
 	return this({method: 'get', url: `/api/time/${lat}/${lng}`})
 }
 
