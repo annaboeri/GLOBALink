@@ -23,7 +23,7 @@
 
 
 ### APIs Used
-- Google Maps via the google-maps-react library
+- Google Maps API via the google-maps-react library
 - Google Places API
 - Google Maps Time Zone API
 - Twitter API via twitter client library
@@ -33,7 +33,7 @@
 ### Future Work
 - Add flash messages on log in and sign up
 - Show list of places users have "explored" on their profile
-- Add user's geolocation and display users' location in chat
+- Add user's geolocation and display users' current location in chat
 - Allow users to upload avatar images that display in chat
 
 
