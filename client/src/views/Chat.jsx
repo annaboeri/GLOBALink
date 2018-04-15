@@ -86,7 +86,6 @@ class Chat extends React.Component {
 
 
         getEnvironmentUrl = () => {
-            console.log(window.location)
             const host = window.location.host
             const domain = '.com'
             const dev = 'http://localhost:3001'
@@ -99,7 +98,7 @@ class Chat extends React.Component {
 		<div className="Chat container">
             <div className="row">
                 <div className="column column-50">
-                    <div className="chatBox" ref="chatBox">
+                    <div className="chatCol chatBox" ref="chatBox">
                     { this.state.allMessages.map((message, index) => {
                         return (
                             <div key={index}><span className="name">{message.author}:</span> <span className="message">{message.message}</span></div>
@@ -119,7 +118,7 @@ class Chat extends React.Component {
                         </fieldset>
                         </form>
                 </div>
-                <div className="column column-50">
+                <div className="usersCol column column-50">
                     <ul>
                         <h3>Online Users: {this.state.allUsers.length}</h3>
                             { this.state.allUsers.map((user, index) => {

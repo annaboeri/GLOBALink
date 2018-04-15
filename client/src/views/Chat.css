@@ -4,6 +4,7 @@
     border-radius: 3px;
     padding: 20px;
     height: 300px;
+    max-width: 500px;
     margin-bottom: 20px;
     overflow: scroll;
 }
@@ -16,4 +17,14 @@
 input.send-button {
     background-color: #57BC90;
     border-color: #57BC90;
+}
+
+.chatCol {
+    margin: 20px;
+    padding: 20px;
+}
+
+.usersCol {
+    margin: 20px;
+    padding: 50px;
 }

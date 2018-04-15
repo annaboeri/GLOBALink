@@ -1,7 +1,7 @@
 .CountryInfo {
     border: 1px solid #606c76;
     margin: 20px 0;
-    padding: 20px; 
+    padding: 30px 60px;
     
 }
 
@@ -12,4 +12,9 @@
 
 .CountryInfo span {
     font-weight: 800;
+}
+
+.Info {
+    font-size: 20px;
+    margin: 3px 0;
 }
