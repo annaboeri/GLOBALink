@@ -12,3 +12,8 @@
     font-weight: 800;
     /* color: #ab5dda; */
 }
+
+input.send-button {
+    background-color: #57BC90;
+    border-color: #57BC90;
+}

@@ -115,7 +115,7 @@ class Chat extends React.Component {
                                     placeholder="Message" name="message" 
                                     value={this.state.fields.message}
                                 />              
-                                <input className="button-primary" type="submit" value="Send Message" />
+                                <input className="send-button" type="submit" value="Send Message" />
                         </fieldset>
                         </form>
                 </div>
