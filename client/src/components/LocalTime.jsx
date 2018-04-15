@@ -11,9 +11,7 @@ class LocalTime extends React.Component{
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.randomCity.lat) 
         httpClient.getLocalTime(nextProps.randomCity.lat, nextProps.randomCity.lng).then((serverResponse) => {
-            console.log(serverResponse.data)
             this.setState({
                 localTimezone: serverResponse.data
             })

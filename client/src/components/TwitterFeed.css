@@ -1,69 +1,69 @@
 
-  @-webkit-keyframes ticker {
-    0% {
-      -webkit-transform: translate3d(20px, 0, 0);
-      transform: translate3d(0, 0, 0);
-      visibility: visible;
-    }
-    100% {
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
-    }
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
   }
-  @keyframes ticker {
-    0% {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      visibility: visible;
-    }
-    100% {
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
-    }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
   }
-  .tickerWrap {
-    overflow: hidden;
-    height: 5rem;
-    background-color: white;
-    background-color: rgba(1,82,73, .08);
-    border: 1px solid rgba(1,82,73, .2); 
-    border-radius: 3px;
-    padding-left: 100%;
-    box-sizing: content-box;
-    margin: 20px 0;
+}
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
   }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.tickerWrap {
+  overflow: hidden;
+  height: 5rem;
+  background-color: white;
+  background-color: rgba(1,82,73, .08);
+  border: 1px solid rgba(1,82,73, .2); 
+  border-radius: 3px;
+  padding-left: 100%;
+  box-sizing: content-box;
+  margin: 20px 0;
+}
 
-   .ticker {
-    display: inline-block;
-    height: 5rem;
-    line-height: 5rem;
-    font-size: 2rem;
-    color: #606c76;
-    white-space: nowrap;
-    box-sizing: content-box;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear;
-    -webkit-animation-name: ticker;
-    animation-name: ticker;
-    -webkit-animation-duration: 60s;
-    animation-duration: 60s;
-  }
-  
-  .tickerItem {
-    display: inline-block;
-    padding: 0 2rem;
-    font-size: 2rem;
-  }
+  .ticker {
+  display: inline-block;
+  height: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  color: #606c76;
+  white-space: nowrap;
+  box-sizing: content-box;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: ticker;
+  animation-name: ticker;
+  -webkit-animation-duration: 60s;
+  animation-duration: 60s;
+}
 
-  .tickerItem  a {
-    color: rgba(1,82,73, .7); 
-  }
+.tickerItem {
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 2rem;
+}
 
-  .tickerItem  a:hover {
-    color: #606c76;
-  }
+.tickerItem  a {
+  color: rgba(1,82,73, .7); 
+}
+
+.tickerItem  a:hover {
+  color: #606c76;
+}
 
 
-  
+

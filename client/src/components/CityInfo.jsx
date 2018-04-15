@@ -21,23 +21,22 @@ class CityInfo extends React.Component {
         const { randomCity, population } = this.state
         return (
             <div className="cityInfo">
-            <div className="row">
-                <div className="column">
-                    <h2><IoIosLocation /><span>{randomCity.city}</span></h2>
+                <div className="row">
+                    <div className="column">
+                        <h2><IoIosLocation /><span>{randomCity.city}</span></h2>
+                    </div>
                 </div>
-            </div>
-            <div className="row">
-                <div className="column column-40">
-                    <h3><IoMap /> {randomCity.province}, {randomCity.country}</h3>
+                <div className="row">
+                    <div className="column column-40">
+                        <h3><IoMap /> {randomCity.province}, {randomCity.country}</h3>
+                    </div>
+                    <div className="column column-30">
+                        <h3><IoPersonStalker /> {population}</h3>
+                    </div>
+                    <div className="column column-30">
+                        <LocalTime randomCity={randomCity} /> 
+                    </div>
                 </div>
-                <div className="column column-30">
-                    <h3><IoPersonStalker /> {population}</h3>
-                </div>
-                <div className="column column-30">
-                    <LocalTime randomCity={randomCity} /> 
-                </div>
-            </div>
-   
             </div>
         )
     }
