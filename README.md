@@ -1,10 +1,10 @@
 # GLOBALink
---
+
 ###### Explore the world one random city at a time. 
 
-<p>This app allows users to learn about cities around the world by generating a random world city and displaying relevant information about that city, including: the city's location, population, local time, current weather, popular places nearby, current twitter trends, as well as information about the country that the city is located in. Users can also chat in real time with other users from around the globe that are also logged in to the app.</p>
-
 ![app screenshot]()
+
+<p>This app allows users to learn about cities around the world by generating a random world city and displaying relevant information about that city, including: the city's location, population, local time, current weather, popular places nearby, current twitter trends, as well as information about the country that the city is located in. Users can also chat in real time with other users from around the globe that are also logged in to the app.</p>
 
 ##### Check out the app [here](https://project-4-globalink.herokuapp.com/)!
 
