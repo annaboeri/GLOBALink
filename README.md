@@ -1,6 +1,7 @@
 # GLOBALink
 
-##### Explore the world one random city at a time. 
+#### Explore the world one random city at a time.
+ 
 
 ![app screenshot](images/screenshot.png)
 
