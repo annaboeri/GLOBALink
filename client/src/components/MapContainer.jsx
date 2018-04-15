@@ -22,7 +22,6 @@ class MapContainer extends React.Component{
         }}
         zoom={14}
         mapTypeId="terrain"
-        mapType="terrain"
         id="map"
       >
       </Map>
