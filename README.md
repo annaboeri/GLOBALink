@@ -36,8 +36,9 @@
 - Allow users to upload avatar images that display in chat
 
 
+
 ### Wireframes
-![wireframe](images/Screen Shot 2018-04-14 at 7.49.37 PM.png)
-![wireframe](images/Screen Shot 2018-04-14 at 7.49.51 PM.png)
-![wireframe](images/Screen Shot 2018-04-14 at 7.50.25 PM.png)
-![wireframe](images/Screen Shot 2018-04-14 at 7.51.54 PM.png)
+![wireframe](images/wireframe1.png)
+![wireframe](images/wireframe2.png)
+![wireframe](images/wireframe3.png)
+![wireframe](images/wireframe4.png)
