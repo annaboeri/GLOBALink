@@ -25,7 +25,6 @@ const twitterClient = new Twitter({
     bearer_token: bearerToken
       })
 
-
 mongoose.connect(MONGODB_URI, (err) => {
     console.log(err || 'Connected to MongoDB')
 })
