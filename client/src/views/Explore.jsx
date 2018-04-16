@@ -10,8 +10,6 @@ import cityData from '../cityData.json'
 import {IoAndroidGlobe} from 'react-icons/lib/io'
 
 
-
-
 class Explore extends React.Component {
     state = {
         randomCity: this.randomCity(cityData, 7323)
