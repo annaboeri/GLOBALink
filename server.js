@@ -65,7 +65,6 @@ app.get('/api/time/:lat/:lng', (req, res) => {
     const apiUrl = `https://maps.googleapis.com/maps/api/timezone/json?location=${req.params.lat},${req.params.lng}&timestamp=1331766000&key=AIzaSyDJ323ZJhLZohoR7aqMU4tqm2etoDbRPMA`
     const options = { method: 'get', url: apiUrl }
     httpClient(options).then((apiResponse) => {
-        console.log(apiResponse.data.timeZoneId)
         res.json(apiResponse.data.timeZoneId)
     })
 })
@@ -78,7 +77,7 @@ app.get('/api/country/:iso', (req, res) => {
 })
 
 
-io.on('connection', socket => {
+io.on('connection', socket => {  
 
     // server gets new user when they connect and sends that user info to all clients
     socket.on('broadcast-user', (user) => {
@@ -92,6 +91,10 @@ io.on('connection', socket => {
     socket.on('disconnect', () => {
         console.log('user disconnected')
     })
+})
+
+io.on("connect_failed", err => {
+    console.log(err)
 })
 
 app.use('*', (req, res) => {
