@@ -1,7 +1,6 @@
 
 export default function() {
-    return 
-    [
+    return [
         {
           "city": "Qal eh-ye Now",
           "city_ascii": "Qal eh-ye",
