@@ -1,6 +1,6 @@
 import React from 'react'
 import LocalTime from './LocalTime'
-import './CityInfo.css'
+import '../styles/CityInfo.css'
 import {IoIosLocation, IoMap, IoPersonStalker} from 'react-icons/lib/io'
 
 

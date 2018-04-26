@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import 'milligram'
 import './styles.css'
-import App from './components/App'
+import App from './containers/App'
 import reducers from './reducers'
 
 ReactDOM.render(
