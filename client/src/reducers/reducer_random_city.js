@@ -2,7 +2,7 @@
 // this reducer is responsible for
 export default function(state = null, action) {
     switch (action.type) {
-      case "NEW_CITY_GENERATED":
+      case "GENERATE_RANDOM_CITY":
         return action.payload;
     }
   

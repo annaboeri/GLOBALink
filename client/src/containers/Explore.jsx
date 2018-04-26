@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { generateRandomCity } from '../actions/index'
+import { bindActionCreators } from 'redux'
 import '../styles/Explore.css'
 import CityInfo from '../containers/CityInfo'
 import MapContainer from '../components/MapContainer'
@@ -7,32 +9,28 @@ import TwitterFeed from '../containers/TwitterFeed'
 import Weather from '../containers/Weather'
 import GooglePlaces from '../containers/GooglePlaces'
 import CountryInfo from '../containers/CountryInfo'
-import cityData from '../cityData.json'
 import {IoAndroidGlobe} from 'react-icons/lib/io'
 
 
 class Explore extends React.Component {
-    state = {
-        randomCity: this.randomCity(cityData, 7323)
-      }
-
-      randomCity(citiesArr, arrLength){
-          let city = citiesArr[Math.floor(Math.random() * arrLength)]
-          return city
-      }
-
-      handleClick(){
+    
+    handleClick(){
           window.location.reload()
       }
 
+    compnentDidMount(){
+        const { cities } = this.props
+       
+    }
+
     render(){
-        const { randomCity } = this.state
+        console.log('props:', this.props)
         return (
             <div className='Explore container'>
                <h3><IoAndroidGlobe onClick={this.handleClick.bind(this)} size={60}/>
                     Click the globe to explore a new city!
                 </h3>
-                <div className="row">
+                {/* <div className="row">
                     <div className="column">
                         <div id='MapContainer'>
                             <MapContainer randomCity={randomCity} />
@@ -67,11 +65,26 @@ class Explore extends React.Component {
                             <GooglePlaces randomCity={randomCity} />
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         )
     }
 
 }
 
-export default Explore
+// whatever is returned will show up as props inside of Explore
+// this.props.randomCity
+function mapStateToProps(state) {
+    return {
+      cities: state.cities
+    }
+  }
+
+// Whenever generateRandomCity is called, the result should be passed to all reducers 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ generateRandomCity: generateRandomCity }, dispatch)
+}
+
+
+  
+export default connect(mapStateToProps, mapDispatchToProps)(Explore)
