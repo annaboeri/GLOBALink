@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import './Explore.css'
+import '../styles/Explore.css'
 import CityInfo from '../components/CityInfo'
 import MapContainer from '../components/MapContainer'
 import TwitterFeed from '../components/TwitterFeed'

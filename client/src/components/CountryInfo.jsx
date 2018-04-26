@@ -1,6 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient'
-import './CountryInfo.css'
+import '../styles/CountryInfo.css'
 
 
 class CountryInfo extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient'
-import './TwitterFeed.css'
+import '../styles/TwitterFeed.css'
 
 
 class TwitterFeed extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient'
-import './GooglePlaces.css'
+import '../styles/GooglePlaces.css'
 
 
 class GooglePlaces extends React.Component {
