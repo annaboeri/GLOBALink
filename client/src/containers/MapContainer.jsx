@@ -5,7 +5,6 @@ import {Map, GoogleApiWrapper} from 'google-maps-react';
 class MapContainer extends React.Component{
     
   render(){
-    console.log(this.props.randomCity)
     if (!this.props.google) {
       return <div>Loading Map...</div>;
     }
@@ -14,7 +13,6 @@ class MapContainer extends React.Component{
       height: '500px'
     }
     if(this.props.randomCity){
-      console.log(this.props.randomCity.randomCity.lat)
     return(
       <Map 
         google={this.props.google}
