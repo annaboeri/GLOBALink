@@ -8,8 +8,12 @@ import './styles.css'
 import App from './containers/App'
 import reducers from './reducers'
 
+const store = createStore(reducers)
+console.log(store.getState())
+
+
 ReactDOM.render(
-	<Provider store={createStore(reducers)}>
+	<Provider store={store}>
 		<Router>
 			<App id="App" />
 		</Router>

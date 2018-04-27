@@ -5,7 +5,7 @@ import RandomCityReducer from "./reducer_random_city"
 
 const rootReducer = combineReducers({
     cities: CitiesReducer,
-    generateRandomCity: RandomCityReducer
+    randomCity: RandomCityReducer
   });
   
   export default rootReducer;

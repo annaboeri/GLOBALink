@@ -49,3 +49,4 @@ class GooglePlaces extends React.Component {
 }
 
 export default GooglePlaces
+
