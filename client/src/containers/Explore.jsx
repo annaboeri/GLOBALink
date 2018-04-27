@@ -15,16 +15,13 @@ import {IoAndroidGlobe} from 'react-icons/lib/io'
 class Explore extends React.Component {
     
     handleClick(){
-          window.location.reload()
-      }
-
-    compnentDidMount(){
-        const { cities } = this.props
-       
-    }
+          //window.location.reload()
+          const { cities } = this.props
+          this.props.generateRandomCity(cities)
+      }  
 
     render(){
-        console.log('props:', this.props)
+      
         return (
             <div className='Explore container'>
                <h3><IoAndroidGlobe onClick={this.handleClick.bind(this)} size={60}/>
@@ -76,7 +73,8 @@ class Explore extends React.Component {
 // this.props.randomCity
 function mapStateToProps(state) {
     return {
-      cities: state.cities
+      cities: state.cities,
+      randomCity: state.randomCity
     }
   }
 
