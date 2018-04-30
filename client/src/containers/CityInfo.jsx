@@ -7,13 +7,6 @@ import {IoIosLocation, IoMap, IoPersonStalker} from 'react-icons/lib/io'
 
 class CityInfo extends React.Component {
 
-    // componentDidMount() {
-    //     this.setState({
-    //         randomCity: this.props.randomCity,
-    //         population: this.props.randomCity.pop.toLocaleString('en')
-    //     })
-    // }
-
     render(){
         console.log(this.props.randomCity)
         if(this.props.randomCity){
@@ -30,7 +23,7 @@ class CityInfo extends React.Component {
                             <h3><IoMap /> {randomCity.province}, {randomCity.country}</h3>
                         </div>
                         <div className="column column-30">
-                            <h3><IoPersonStalker /> {randomCity.pop}</h3>
+                            <h3><IoPersonStalker /> {randomCity.pop.toLocaleString('en')}</h3>
                         </div>
                         {/* <div className="column column-30">
                             <LocalTime randomCity={randomCity} /> 

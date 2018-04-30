@@ -1,3 +1,4 @@
+import httpClient from "../httpClient"
 
 export function generateRandomCity(cities) {
     // generateRandomCity is an ActionCreator, it needs to return an action,
@@ -8,3 +9,14 @@ export function generateRandomCity(cities) {
       payload: randomCity
     }
   }
+
+export function fetchCountryInfo(randomCity){
+    console.log(randomCity.randomCity.iso3.toLowerCase())
+    const request = httpClient.getCountryInfo(randomCity.randomCity.iso3.toLowerCase())
+
+    return {
+        type: 'FETCH_COUNTRY_INFO',
+        payload: request
+
+    }
+}
