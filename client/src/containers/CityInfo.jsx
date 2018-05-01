@@ -8,9 +8,8 @@ import {IoIosLocation, IoMap, IoPersonStalker} from 'react-icons/lib/io'
 class CityInfo extends React.Component {
 
     render(){
-        console.log(this.props.randomCity)
         if(this.props.randomCity){
-            const { randomCity } = this.props.randomCity
+            const { randomCity } = this.props
             return (
                 <div className="cityInfo">
                     <div className="row">

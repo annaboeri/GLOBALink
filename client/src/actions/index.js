@@ -11,9 +11,7 @@ export function generateRandomCity(cities) {
   }
 
 export function fetchCountryInfo(randomCity){
-    console.log(randomCity.randomCity.iso3.toLowerCase())
-    const request = httpClient.getCountryInfo(randomCity.randomCity.iso3.toLowerCase())
-
+    const request = httpClient.getCountryInfo(randomCity.iso3.toLowerCase())
     return {
         type: 'FETCH_COUNTRY_INFO',
         payload: request

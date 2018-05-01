@@ -10,26 +10,25 @@ class CountryInfo extends React.Component {
 
 
     componentDidUpdate() {
-        console.log(this.props.randomCity)
         this.props.fetchCountryInfo(this.props.randomCity)
     }
 
       
 	render(){
-        console.log(this.props)
         if(this.props.countryInfo){
+        const { countryInfo } = this.props
         return (
             <div className="CountryInfo">
                 <div className="row">
                     <div className="column">
                         <h3>Country Facts:</h3>
-                        <div className="Info"><span>Country: </span>{this.state.country.name}</div>
-                        <div className="Info"><span>Capital: </span>{this.state.country.capital}</div>
-                        <div className="Info"><span>Currency: </span>{this.state.country.currency}</div>
-                        <div className="Info"><span>Language: </span>{this.state.country.language}</div> 
+                        <div className="Info"><span>Country: </span>{countryInfo.name}</div>
+                        <div className="Info"><span>Capital: </span>{countryInfo.capital}</div>
+                        <div className="Info"><span>Currency: </span>{countryInfo.currencies[0].name}</div>
+                        <div className="Info"><span>Language: </span>{countryInfo.languages[0].name}</div> 
                     </div>
                     <div className="column">
-                        <img className="flagImg" src={this.state.country.flagImg} alt="Country Flag" /> 
+                        <img className="flagImg" src={countryInfo.flag} alt="Country Flag" /> 
                     </div>
                 </div>
             </div>

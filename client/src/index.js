@@ -9,9 +9,8 @@ import './styles.css'
 import App from './containers/App'
 import reducers from './reducers'
 
-const createStoreWithMiddleware = applyMiddleware()(createStore)
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
 const store = createStoreWithMiddleware(reducers)
-console.log(store.getState(ReduxPromise))
 
 
 ReactDOM.render(

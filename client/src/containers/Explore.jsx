@@ -21,10 +21,8 @@ class Explore extends React.Component {
       } 
       
     
-
     render(){
         const { randomCity } = this.props
-        console.log(randomCity)
         return (
             <div className='Explore container'>
                <h3><IoAndroidGlobe onClick={this.handleClick.bind(this)} size={60}/>

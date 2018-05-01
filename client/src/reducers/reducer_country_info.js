@@ -1,12 +1,9 @@
 
 export default function(state = null, action) {
-    console.log('Action received', action)
-    return state
+    // action payload is a promise
     switch (action.type) {
         case 'FETCH_COUNTRY_INFO':
-          return Object.assign({}, state, {
-            countryInfo: action.payload
-          })
+          return Object.assign({}, state, action.payload.data)
         default:
           return state
       }
