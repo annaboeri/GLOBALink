@@ -26,3 +26,11 @@ export function fetchTwitterTrends(randomCity){
         payload: request
     }
 } 
+
+export function fetchWeather(randomCity){
+    const request = httpClient.getWeather(randomCity.city)
+    return {
+        type: 'FETCH_WEATHER',
+        payload: request
+    }
+} 

@@ -1,31 +1,28 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchWeather } from '../actions/index'
 import httpClient from '../httpClient'
 import '../styles/Weather.css'
 
 class Weather extends React.Component{
 
-    state = {
-        cityWeather: "",
-        cityTemp: "",
-        cityHumidity: "",
-        weatherIconSrc: ""
-    }
 
-    componentDidMount(){
-        httpClient.getWeather(this.props.randomCity.city).then((serverResponse) => {
-            const icon = serverResponse.data.weather[0].icon
-            this.setState({
-                cityWeather: serverResponse.data.weather[0].main,
-                cityTemp: serverResponse.data.main.temp,
-                cityHumidity: serverResponse.data.main.humidity,
-                weatherIconSrc: `http://openweathermap.org/img/w/${icon}.png`
-            })
-        })
+    componentDidUpdate(){
+        if(this.props.weather === null){
+        this.props.fetchWeather(this.props.randomCity)
+        }
     }
 
     render(){
-        const { cityWeather, cityTemp, cityHumidity, weatherIconSrc } = this.state
-        if(cityWeather !== "" || cityTemp !== "" || cityHumidity !== ""){
+        if(this.props.weather){
+            const { weather } = this.props
+            console.log(weather)
+            const cityWeather = weather.weather[0].main
+            const cityTemp = weather.main.temp
+            const cityHumidity = weather.main.humidity
+            const icon = weather.weather[0].icon
+            const weatherIconSrc = `http://openweathermap.org/img/w/${icon}.png`
             return(
                 <div className="Weather">
                     <h3>Current Weather:</h3>
@@ -44,4 +41,15 @@ class Weather extends React.Component{
     }
 }
 
-export default Weather
+function mapStateToProps(state) {
+    return {
+      randomCity: state.randomCity,
+      weather: state.weather
+    }
+  }
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ fetchWeather }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Weather)
