@@ -4,6 +4,7 @@ import RandomCityReducer from './reducer_random_city'
 import CountryInfoReducer from './reducer_country_info'
 import TwitterTrendsReducer from './reducer_twitter_trends'
 import WeatherReducer from './reducer_weather'
+import PlacesInfoReducer from './reducer_places_info'
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     randomCity: RandomCityReducer,
     countryInfo: CountryInfoReducer,
     twitterTrends: TwitterTrendsReducer,
-    weather: WeatherReducer
+    weather: WeatherReducer,
+    placesInfo: PlacesInfoReducer
   });
   
   export default rootReducer;

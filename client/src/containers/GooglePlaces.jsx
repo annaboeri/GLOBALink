@@ -1,34 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchPlacesInfo } from '../actions/index'
 import httpClient from '../httpClient'
 import '../styles/GooglePlaces.css'
 
 
 class GooglePlaces extends React.Component {
 
-    state = {
-        googlePlaces: []
-    }
-
-    componentDidMount(){
-        httpClient.getGooglePlacesData(this.props.randomCity.lat, this.props.randomCity.lng).then((serverResponse) => {
-            this.setState({
-                googlePlaces: serverResponse.data
-            })
-        })
-    }
-    
-    componentWillUnmount(){
-        this.setState({
-            googlePlaces: []
-        })
+ 
+    componentDidUpdate(){
+        if(this.props.placesInfo.length === 0 )
+        this.props.fetchPlacesInfo(this.props.randomCity)
     }
 
 	render(){
-        if(this.state.googlePlaces.length > 0){
+        const placesInfo = this.props.placesInfo[0]
+        console.log(placesInfo)
+        if(this.props.placesInfo.length > 0){
         return (
             <div className="GooglePlaces">
                 <h3>Popular Places:</h3>
-                {this.state.googlePlaces.map((t, i) => {
+                {placesInfo.map((t, i) => {
                     return (
                         <div key={i}>
                             <img className="placeIcon" src={t.icon} alt="place icon" />
@@ -48,5 +41,17 @@ class GooglePlaces extends React.Component {
     }
 }
 
-export default GooglePlaces
+function mapStateToProps(state) {
+    return {
+      randomCity: state.randomCity,
+      placesInfo: state.placesInfo
+    }
+  }
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ fetchPlacesInfo }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GooglePlaces)
+
 

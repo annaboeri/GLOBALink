@@ -34,3 +34,11 @@ export function fetchWeather(randomCity){
         payload: request
     }
 } 
+
+export function fetchPlacesInfo(randomCity){
+    const request = httpClient.getGooglePlacesData(randomCity.lat, randomCity.lng)
+    return {
+        type: 'FETCH_PLACES_INFO',
+        payload: request
+    }
+} 
