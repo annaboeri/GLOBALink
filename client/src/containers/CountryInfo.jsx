@@ -10,6 +10,7 @@ class CountryInfo extends React.Component {
 
 
     componentDidUpdate() {
+        if(this.props.countryInfo === null)
         this.props.fetchCountryInfo(this.props.randomCity)
     }
 

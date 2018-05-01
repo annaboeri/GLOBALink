@@ -5,7 +5,7 @@ export function generateRandomCity(cities) {
     // an object with a type property
     let randomCity = cities[Math.floor(Math.random() * cities.length)]
     return {
-      type: "GENERATE_RANDOM_CITY",
+      type: 'GENERATE_RANDOM_CITY',
       payload: randomCity
     }
   }
@@ -18,3 +18,11 @@ export function fetchCountryInfo(randomCity){
 
     }
 }
+
+export function fetchTwitterTrends(randomCity){
+    const request = httpClient.getTwitterTrends(randomCity.lat, randomCity.lng)
+    return {
+        type: 'FETCH_TWITTER_TRENDS',
+        payload: request
+    }
+} 

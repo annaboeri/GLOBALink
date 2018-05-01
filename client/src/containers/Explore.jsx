@@ -40,13 +40,13 @@ class Explore extends React.Component {
                         <CityInfo />
                     </div>
                 </div>
-                {/*
+                
                 <div className="row">
                     <div className="column">
-                        <TwitterFeed randomCity={randomCity}/>
+                        <TwitterFeed />
                     </div>
                 </div>
-                */}
+               
                 <div className="row">
                     <div className="column">
                         <div>
