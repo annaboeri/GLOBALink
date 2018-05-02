@@ -10,8 +10,6 @@ class CountryInfo extends React.Component {
 
 
     componentDidUpdate(prevProps) {
-        console.log("prev props:", prevProps.randomCity)
-        console.log('this.props.randomCity', this.props.randomCity)
         if(prevProps.randomCity !== this.props.randomCity){
             this.props.fetchCountryInfo(this.props.randomCity)
         }
