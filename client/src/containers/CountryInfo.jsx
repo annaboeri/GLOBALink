@@ -9,9 +9,12 @@ import '../styles/CountryInfo.css'
 class CountryInfo extends React.Component {
 
 
-    componentDidUpdate() {
-        if(this.props.countryInfo === null)
-        this.props.fetchCountryInfo(this.props.randomCity)
+    componentDidUpdate(prevProps) {
+        console.log("prev props:", prevProps.randomCity)
+        console.log('this.props.randomCity', this.props.randomCity)
+        if(prevProps.randomCity !== this.props.randomCity){
+            this.props.fetchCountryInfo(this.props.randomCity)
+        }
     }
 
       
