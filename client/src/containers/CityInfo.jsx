@@ -24,9 +24,9 @@ class CityInfo extends React.Component {
                         <div className="column column-30">
                             <h3><IoPersonStalker /> {randomCity.pop.toLocaleString('en')}</h3>
                         </div>
-                        {/* <div className="column column-30">
-                            <LocalTime randomCity={randomCity} /> 
-                        </div> */}
+                        <div className="column column-30">
+                            <LocalTime /> 
+                        </div> 
                     </div>
                 </div>
             )}

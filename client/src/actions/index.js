@@ -42,3 +42,12 @@ export function fetchPlacesInfo(randomCity){
         payload: request
     }
 } 
+
+export function fetchLocalTimezone(randomCity){
+    const request = httpClient.getLocalTime(randomCity.lat, randomCity.lng)
+    console.log('action creator request', request)
+    return {
+        type: 'FETCH_LOCAL_TIMEZONE',
+        payload: request
+    }
+} 

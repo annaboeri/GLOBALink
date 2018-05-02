@@ -10,13 +10,13 @@ class TwitterFeed extends React.Component {
 
 
     componentDidUpdate(){
-        if(this.props.twitterTrends.length === 0){
+        if(!this.props.twitterTrends){
         this.props.fetchTwitterTrends(this.props.randomCity)
         }
     } 
 
 	render(){ 
-        if(this.props.twitterTrends.length !== 0){
+        if(this.props.twitterTrends){
         const { twitterTrends } = this.props
         console.log(twitterTrends)
         return (

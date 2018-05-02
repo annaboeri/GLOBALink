@@ -45,8 +45,8 @@ class Explore extends React.Component {
                     <div className="column">
                         <TwitterFeed />
                     </div>
-                </div> */}
-               
+                </div> 
+                */}
                 <div className="row">
                     <div className="column">
                         <div>
@@ -56,11 +56,11 @@ class Explore extends React.Component {
                 </div>
                 <div className="row">
                     <div className="column column-20 weatherDiv">
-                        <Weather randomCity={randomCity} />
+                        <Weather />
                     </div>
                     <div className="column placesCol">
                         <div className="placesDiv column column-80">
-                            <GooglePlaces randomCity={randomCity} />
+                            <GooglePlaces />
                         </div>
                     </div> 
                 </div> 

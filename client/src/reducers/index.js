@@ -5,6 +5,7 @@ import CountryInfoReducer from './reducer_country_info'
 import TwitterTrendsReducer from './reducer_twitter_trends'
 import WeatherReducer from './reducer_weather'
 import PlacesInfoReducer from './reducer_places_info'
+import LocalTimezoneReducer from './reducer_local_timezone'
 
 
 const rootReducer = combineReducers({
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     countryInfo: CountryInfoReducer,
     twitterTrends: TwitterTrendsReducer,
     weather: WeatherReducer,
-    placesInfo: PlacesInfoReducer
+    placesInfo: PlacesInfoReducer,
+    localTimezone: LocalTimezoneReducer
   });
   
   export default rootReducer;
