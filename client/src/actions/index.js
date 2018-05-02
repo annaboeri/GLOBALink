@@ -20,7 +20,6 @@ export function fetchCountryInfo(randomCity){
 }
 
 export function fetchTwitterTrends(randomCity){
-    console.log('twitter action creator request', request)
     const request = httpClient.getTwitterTrends(randomCity.lat, randomCity.lng)
     return {
         type: 'FETCH_TWITTER_TRENDS',

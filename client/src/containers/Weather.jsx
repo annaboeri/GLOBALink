@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchWeather } from '../actions/index'
-import httpClient from '../httpClient'
 import '../styles/Weather.css'
 
 class Weather extends React.Component{
@@ -14,8 +13,8 @@ class Weather extends React.Component{
     }
 
     render(){
-        const { weather } = this.props
-        if(weather){
+        if(this.props.weather){
+            const { weather } = this.props
             console.log(weather)
             const cityWeather = weather.weather[0].main
             const cityTemp = weather.main.temp

@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchTwitterTrends } from '../actions/index'
-import httpClient from '../httpClient'
 import '../styles/TwitterFeed.css'
 
 
@@ -17,7 +16,6 @@ class TwitterFeed extends React.Component {
 	render(){ 
         if(this.props.twitterTrends){
         const { twitterTrends } = this.props
-        console.log(twitterTrends)
         return (
 		<div className="TwitterFeed tickerWrap">
             <div className="ticker">Top Twitter Trends:

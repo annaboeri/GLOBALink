@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchPlacesInfo } from '../actions/index'
-import httpClient from '../httpClient'
 import '../styles/GooglePlaces.css'
 
 
