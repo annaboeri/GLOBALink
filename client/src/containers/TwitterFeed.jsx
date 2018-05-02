@@ -8,12 +8,11 @@ import '../styles/TwitterFeed.css'
 
 class TwitterFeed extends React.Component {
 
-
-    componentDidUpdate(){
-        if(!this.props.twitterTrends){
-        this.props.fetchTwitterTrends(this.props.randomCity)
+    componentDidUpdate(prevProps) {
+        if(prevProps.randomCity !== this.props.randomCity){
+            this.props.fetchTwitterTrends(this.props.randomCity)
         }
-    } 
+    }
 
 	render(){ 
         if(this.props.twitterTrends){

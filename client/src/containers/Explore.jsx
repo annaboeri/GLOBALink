@@ -41,12 +41,11 @@ class Explore extends React.Component {
                     </div>
                 </div>
                 
-                {/* <div className="row">
+                <div className="row">
                     <div className="column">
                         <TwitterFeed />
                     </div>
                 </div> 
-                */}
                 <div className="row">
                     <div className="column">
                         <div>

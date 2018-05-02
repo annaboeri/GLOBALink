@@ -14,8 +14,8 @@ class Weather extends React.Component{
     }
 
     render(){
-        if(this.props.weather){
-            const { weather } = this.props
+        const { weather } = this.props
+        if(weather){
             console.log(weather)
             const cityWeather = weather.weather[0].main
             const cityTemp = weather.main.temp

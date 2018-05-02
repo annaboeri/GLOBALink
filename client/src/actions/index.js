@@ -20,6 +20,7 @@ export function fetchCountryInfo(randomCity){
 }
 
 export function fetchTwitterTrends(randomCity){
+    console.log('twitter action creator request', request)
     const request = httpClient.getTwitterTrends(randomCity.lat, randomCity.lng)
     return {
         type: 'FETCH_TWITTER_TRENDS',
@@ -45,7 +46,6 @@ export function fetchPlacesInfo(randomCity){
 
 export function fetchLocalTimezone(randomCity){
     const request = httpClient.getLocalTime(randomCity.lat, randomCity.lng)
-    console.log('action creator request', request)
     return {
         type: 'FETCH_LOCAL_TIMEZONE',
         payload: request
