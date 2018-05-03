@@ -12,7 +12,7 @@
 ### Technologies Used
 - React
 - Redux
-- NodeJS
+- Node.js
 - Express
 - MongoDB
 - HTML
