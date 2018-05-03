@@ -10,13 +10,14 @@
 ##### Check out the app [here](https://project-4-globalink.herokuapp.com/)!
 
 ### Technologies Used
+- React
+- Redux
+- NodeJS
+- Express
+- MongoDB
 - HTML
 - CSS
 - JavaScript
-- NodeJS
-- Express
-- Mongoose
-- React
 - Socket.io
 - JSON Web Token
 - Milligram CSS
