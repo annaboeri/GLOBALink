@@ -19,6 +19,10 @@ class MapContainer extends React.Component{
       <Map 
         google={this.props.google}
         style={style}
+        initialCenter={{
+          lat: this.props.randomCity.lat, 
+          lng: this.props.randomCity.lng
+        }}
         center={{
           lat: this.props.randomCity.lat, 
           lng: this.props.randomCity.lng
