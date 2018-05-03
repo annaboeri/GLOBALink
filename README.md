@@ -38,7 +38,6 @@
 - Allow users to upload avatar images that display in chat
 
 
-
 ### Wireframes
 ![wireframe](images/wireframe1.png)
 
