@@ -19,7 +19,11 @@
 }
 
 .globeIcon {
-    size: 80;
+    margin-right: 10px;
+}
+
+.globeIcon:hover {
+    color: #57BC90;
 }
 
 a {
