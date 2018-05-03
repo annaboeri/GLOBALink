@@ -12,7 +12,7 @@ class MapContainer extends React.Component{
         return <div>Loading Map...</div>;
       }
       const style = {
-        width: '1000px',
+        width: '1080px',
         height: '500px'
       }
     return(
