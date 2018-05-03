@@ -1,22 +1,25 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import {Map, GoogleApiWrapper} from 'google-maps-react';
 
 class MapContainer extends React.Component{
-    
+  
+
 
   render(){
-    if (!this.props.google) {
-      return <div>Loading Map...</div>;
-    }
-    const style = {
-      width: '1000px',
-      height: '500px'
-    }
+    if(this.props.randomCity){
+      if (!this.props.google) {
+        return <div>Loading Map...</div>;
+      }
+      const style = {
+        width: '1000px',
+        height: '500px'
+      }
     return(
       <Map 
         google={this.props.google}
         style={style}
-        initialCenter={{
+        center={{
           lat: this.props.randomCity.lat, 
           lng: this.props.randomCity.lng
         }}
@@ -28,8 +31,18 @@ class MapContainer extends React.Component{
       </Map>
     )
   }
+  else return null
+  }
 }
 
-export default GoogleApiWrapper({
+const WrappedContainer = GoogleApiWrapper({
   apiKey: "AIzaSyAB9C4pOhc3eeBEdyPpvYzXrg0aDjPgzC0"
 })(MapContainer)
+
+function mapStateToProps(state) {
+  return {
+    randomCity: state.randomCity
+  }
+}
+
+export default connect(mapStateToProps)(WrappedContainer)

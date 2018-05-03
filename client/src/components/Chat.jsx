@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import socketIOClient from 'socket.io-client'
-import './Chat.css'
+import '../styles/Chat.css'
 
 class Chat extends React.Component {
 
