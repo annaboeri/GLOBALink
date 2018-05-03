@@ -13,6 +13,12 @@ class LocalTime extends React.Component{
         this.props.fetchLocalTimezone(this.props.randomCity)
         }
     } 
+
+    componentDidUpdate(prevProps){
+        if(prevProps.randomCity !== this.props.randomCity){
+            this.props.fetchLocalTimezone(this.props.randomCity)
+        }
+    }
     
 
     render(){
