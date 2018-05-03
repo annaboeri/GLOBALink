@@ -48,6 +48,7 @@ app.get('/api/id/:lat/:lng', (req, res) => {
         `https://api.twitter.com/1.1/trends/closest.json?lat=${req.params.lat}&long=${req.params.lng}`, (err, apiResponse) => {
             twitterClient.get(
                 `https://api.twitter.com/1.1/trends/place.json?id=${apiResponse[0].woeid}`, (err, apiResponse) => {
+                    console.log(apiResponse[0])
                 res.json(apiResponse[0].trends)
             })
         })        
