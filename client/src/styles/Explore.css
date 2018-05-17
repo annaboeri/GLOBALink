@@ -3,14 +3,33 @@
     position: relative;
 }
 
+.grid-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .placesDiv {
-    overflow: scroll;
-    min-width: 775px;
-    margin-left: 40px;
+    width: 50%;
 }
 
 .weatherDiv {
-    margin-right: 70px;
+    width: 50%;
+}
+
+@media screen and (max-width: 549px) {
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .placesDiv {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .weatherDiv {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
 
 .placesCol {

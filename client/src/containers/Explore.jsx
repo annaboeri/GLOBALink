@@ -52,15 +52,13 @@ class Explore extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="column column-20 weatherDiv">
+                <div className="grid-container">
+                    <div className="weatherDiv">
                         <Weather />
                     </div>
-                    <div className="column placesCol">
-                        <div className="placesDiv column column-80">
-                            <GooglePlaces />
-                        </div>
-                    </div> 
+                    <div className="placesDiv">
+                        <GooglePlaces />
+                    </div>
                 </div> 
             </div>
         )

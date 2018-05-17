@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import {Map, GoogleApiWrapper} from 'google-maps-react';
 
 class MapContainer extends React.Component{
-  
-
 
   render(){
     if(this.props.randomCity){
@@ -12,7 +10,7 @@ class MapContainer extends React.Component{
         return <div>Loading Map...</div>;
       }
       const style = {
-        width: '1080px',
+        width: '100%',
         height: '500px'
       }
     return(
