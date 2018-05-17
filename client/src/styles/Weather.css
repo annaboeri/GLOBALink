@@ -1,10 +1,12 @@
 .Weather {
     box-sizing: border-box;
+    height: 350px;
+    padding: 20px 70px;
+    margin-top: 20px;
     background-color: rgba(1, 82, 73, .08);
     border: 1px solid rgba(1,82,73, .14); 
     border-radius: 3px;
     text-align: center;
-    margin-top: 20px;
 }
 
 .weatherInfo {
