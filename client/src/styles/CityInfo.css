@@ -4,10 +4,47 @@
     text-shadow: 0.6px 0.6px#015249;
     border: 2px solid rgba(1, 82, 73, .25);
     border-radius: 3px;
-    margin: 20px 0;
+    margin-bottom: 20px;
+    margin-top: 40px;
     padding: 20px 50px;
 }
 
 .cityInfo span {
     font-weight: 500;
+}
+
+.cityinfo-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.location-div {
+    width: 40%;
+}
+
+.population-div {
+    width: 30%;
+}
+
+.time-div {
+    width: 30%;
+}
+
+@media screen and (max-width: 800px) {
+    .cityinfo-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .location-div {
+        width: 100%;
+    }
+    
+    .population-div {
+        width: 100%;
+    }
+    
+    .time-div {
+        width: 100%;
+    }
 }

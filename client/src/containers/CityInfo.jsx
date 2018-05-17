@@ -17,14 +17,14 @@ class CityInfo extends React.Component {
                             <h2><IoIosLocation /><span>{randomCity.city}</span></h2>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="column column-40">
+                    <div className="cityinfo-container">
+                        <div className="location-div">
                             <h3><IoMap /> {randomCity.province}, {randomCity.country}</h3>
                         </div>
-                        <div className="column column-30">
+                        <div className="population-div">
                             <h3><IoPersonStalker /> {randomCity.pop.toLocaleString('en')}</h3>
                         </div>
-                        <div className="column column-30">
+                        <div className="time-div">
                             <LocalTime /> 
                         </div> 
                     </div>

@@ -17,6 +17,16 @@
     margin-left: 80px;
 }
 
+@media screen and (max-width: 549px) {
+    .flagImg {
+        margin-left: 0;
+    }
+
+    .CountryInfo h3 {
+        text-align: center;
+    }
+}
+
 .CountryInfo span {
     font-weight: 800;
 }

@@ -10,6 +10,12 @@
     text-align: left;
 }
 
+@media screen and (max-width: 549px) {
+    .GooglePlaces {
+        margin-top: 0;
+    }
+}
+
 .GooglePlaces h3 {
     text-align: center;
 }

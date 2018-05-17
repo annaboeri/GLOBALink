@@ -19,9 +19,16 @@
 .NavBar li a {
     display: block;
     color: #606c76;
+    font-size: 20px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+}
+
+@media screen and (min-width: 550px) {
+    .NavBar li a {
+        font-size: 22px;
+    }
 }
 
 .NavBar li a:hover {

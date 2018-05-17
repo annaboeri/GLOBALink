@@ -15,12 +15,10 @@ import {IoAndroidGlobe} from 'react-icons/lib/io'
 class Explore extends React.Component {
     
     handleClick(){
-          //window.location.reload()
           const { cities } = this.props
           this.props.generateRandomCity(cities)
       } 
       
-    
     render(){
         return (
             <div className='ExploreContainer'>
