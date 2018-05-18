@@ -20,46 +20,59 @@ class Explore extends React.Component {
       } 
       
     render(){
-        return (
-            <div className='ExploreContainer'>
-               <h3 className="exploreHeading"><IoAndroidGlobe className="globeIcon" onClick={this.handleClick.bind(this)} size={60}/>
-                    Click the globe to explore a new city!
-                </h3>
-                <div className="row">
-                    <div className="column">
-                        <div id='MapContainer'>
-                            <MapContainer />
+        if(!this.props.randomCity){
+            return (
+                <div>
+                    <h3 className="exploreHeading">
+                        Click the globe to explore a new city!
+                    </h3>
+                    <div className="gifContainer">
+                        <img onClick={this.handleClick.bind(this)} src="https://i.gifer.com/W31X.gif" className="globeGiphy"/>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div className='ExploreContainer'>
+                <h3 className="exploreHeading"><IoAndroidGlobe className="globeIcon" onClick={this.handleClick.bind(this)} size={60}/>
+                        Click the globe to explore a new city!
+                    </h3>
+                    <div className="row">
+                        <div className="column">
+                            <div id='MapContainer'>
+                                <MapContainer />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="column">
-                        <CityInfo />
-                    </div>
-                </div>
-                
-                <div className="row">
-                    <div className="column">
-                        <TwitterFeed />
-                    </div>
-                </div> 
-                <div className="row">
-                    <div className="column">
-                        <div>
-                            <CountryInfo />
+                    <div className="row">
+                        <div className="column">
+                            <CityInfo />
                         </div>
                     </div>
+                    
+                    <div className="row">
+                        <div className="column">
+                            <TwitterFeed />
+                        </div>
+                    </div> 
+                    <div className="row">
+                        <div className="column">
+                            <div>
+                                <CountryInfo />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="grid-container">
+                        <div className="weatherDiv">
+                            <Weather />
+                        </div>
+                        <div className="placesDiv">
+                            <GooglePlaces />
+                        </div>
+                    </div> 
                 </div>
-                <div className="grid-container">
-                    <div className="weatherDiv">
-                        <Weather />
-                    </div>
-                    <div className="placesDiv">
-                        <GooglePlaces />
-                    </div>
-                </div> 
-            </div>
-        )
+            )
+        }
     }
 
 }

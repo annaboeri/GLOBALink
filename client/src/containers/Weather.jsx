@@ -6,6 +6,10 @@ import '../styles/Weather.css'
 
 class Weather extends React.Component{
 
+    componentDidMount(){
+        this.props.fetchWeather(this.props.randomCity)  
+    }
+    
     componentDidUpdate(prevProps) {
         if(prevProps.randomCity !== this.props.randomCity){
             this.props.fetchWeather(this.props.randomCity)

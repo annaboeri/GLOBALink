@@ -8,6 +8,10 @@ import '../styles/GooglePlaces.css'
 class GooglePlaces extends React.Component {
 
  
+    componentDidMount(){
+        this.props.fetchPlacesInfo(this.props.randomCity)
+    }
+
     componentDidUpdate(prevProps){
         if(prevProps.randomCity !== this.props.randomCity){
             this.props.fetchPlacesInfo(this.props.randomCity)

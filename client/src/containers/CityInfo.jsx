@@ -32,14 +32,14 @@ class CityInfo extends React.Component {
             )}
          return null
     }
-
 }
-
 
 function mapStateToProps(state) {
     return {
       randomCity: state.randomCity
     }
   }
-  
+
 export default connect(mapStateToProps)(CityInfo)
+
+

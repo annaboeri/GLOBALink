@@ -7,6 +7,10 @@ import '../styles/TwitterFeed.css'
 
 class TwitterFeed extends React.Component {
 
+    componentDidMount(){
+        this.props.fetchTwitterTrends(this.props.randomCity)   
+    }
+    
     componentDidUpdate(prevProps) {
         if(prevProps.randomCity !== this.props.randomCity){
             this.props.fetchTwitterTrends(this.props.randomCity)

@@ -8,6 +8,10 @@ import '../styles/CountryInfo.css'
 class CountryInfo extends React.Component {
 
 
+    componentDidMount(){
+        this.props.fetchCountryInfo(this.props.randomCity)    
+    }
+    
     componentDidUpdate(prevProps) {
         if(prevProps.randomCity !== this.props.randomCity){
             this.props.fetchCountryInfo(this.props.randomCity)

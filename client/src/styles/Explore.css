@@ -2,6 +2,21 @@
     font-size: 1.5em;
 }
 
+.gifContainer {
+    display: flex;
+
+}
+
+.globeGiphy {
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 50%; 
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    
+}
+
 #MapContainer{
     height: 500px;
     position: relative;
@@ -23,6 +38,12 @@
 }
 
 @media screen and (max-width: 549px) {
+
+    .globeGiphy {
+        height: 90%;
+        width: 90%;
+    }
+
     .exploreHeading   {
         font-size: 1.2em;
     }
