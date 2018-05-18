@@ -33,7 +33,7 @@ class Explore extends React.Component {
         } else {
             return (
                 <div className='ExploreContainer'>
-                    <div class="h3Container">
+                    <div className="h3Container">
                         <img onClick={this.handleClick.bind(this)} src="https://i.gifer.com/W31X.gif" className="globeIcon" alt="globe icon"/>
                         <h3 className="exploreHeading">Click the globe to explore a new city!</h3>
                     </div>

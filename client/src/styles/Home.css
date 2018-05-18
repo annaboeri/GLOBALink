@@ -1,19 +1,19 @@
 .Home {
+  display:flex;
   background-image: url('../public/street.jpg');
   background-size: cover;
-  height: 688.89px;
+  height: 100%;
+  width: 100%;
   text-align: center;
   padding: 140px;
   color: white;
 }
 
 .text {
+  width: 90%;
+  padding: 50px;
   text-shadow: 1px 1px#015249;
-  padding: 40px;
-  margin-left: 50px;
   border-radius: 3px;
-  max-width: 700px;
-  max-height: 500px;
   background-color: rgba(87,188,144, .7);
 }
 
@@ -23,6 +23,33 @@
 
 .text a {
   color: #77C9D4;
+}
+
+.text a:hover {
+  color: #53ebff;
+}
+
+@media screen and (max-width: 700px) {
+  .Home {
+    padding: 20px;
+  }
+
+  .text {
+    width: 100%;
+    padding: 1px;
+  }
+
+  .text h1 {
+    font-size: 35px;
+  }
+
+  .text h2 {
+    font-size: 20px;
+  }
+
+  .text h3 {
+    font-size: 25px;
+  }
 
 }
 
