@@ -1,27 +1,37 @@
+.Chat .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 .Chat h2 {
     font-size: 30px;
+    padding: 20px;
+}
+
+.messageContainer {
+    width: 55%;
 }
 
 .chatBox {
+    width: 100%;
+    height: 350px;
     border: 1px solid #606c76;
     border-radius: 3px;
     padding: 20px;
-    height: 400px;
-    max-width: 800px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     overflow: scroll;
     font-size: 18px;
 }
 
 .usersBox {
+    width: 35%;
+    height: 350px;
     background-color: rgba(1, 82, 73, .08);
     border: 1px solid rgba(1,82,73, .14); 
     border-radius: 3px;
     padding: 20px 30px;
     font-size: 18px;
-    height: 300px;
-    max-width: 300px;
     margin-bottom: 20px;
     overflow: scroll;
 }
@@ -58,4 +68,48 @@ input.send-button {
     margin: 20px 30px;
     padding: 100px;
     overflow: scroll;
+}
+
+@media screen and (max-width: 830px) {
+    .Chat .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .Chat h2 {
+        font-size: 30px;
+        padding: 20px;
+    }
+
+    .messageContainer {
+        width: 100%;
+    }
+
+    .usersBox {
+        width: 100%;
+        order: -1;
+        height: 70px;
+    }
+
+    .usersBox li {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 550px) and (max-width: 829px) {
+    .Chat h2 {
+        font-size: 25px;
+        padding: 20px;
+    }
+}
+
+
+@media screen and (max-width: 549px) {
+
+    .Chat h2 {
+        font-size: 22px;
+        padding: 0;
+    }
 }
