@@ -1,5 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient'
+import '../styles/Signup.css'
 
 class SignUp extends React.Component {
 	state = {
@@ -31,7 +32,7 @@ class SignUp extends React.Component {
 		return (
 			<div className='SignUp'>
 				<div className='row'>
-					<div className='column column-33 column-offset-33'>
+					<div className='signupForm'>
 						<h1>Sign Up</h1>
 						<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
 							<input type="text" placeholder="Name" name="name" value={name} />
