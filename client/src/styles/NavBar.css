@@ -18,16 +18,16 @@
 
 .NavBar li a {
     display: block;
-    color: #606c76;
-    font-size: 20px;
+    color: hsl(207, 10%, 42%);
+    font-size: 16px;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 12px;
     text-decoration: none;
 }
 
 @media screen and (min-width: 550px) {
     .NavBar li a {
-        font-size: 22px;
+        font-size: 18px;
     }
 }
 

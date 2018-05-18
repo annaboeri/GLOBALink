@@ -22,7 +22,7 @@ class Explore extends React.Component {
     render(){
         return (
             <div className='ExploreContainer'>
-               <h3><IoAndroidGlobe className="globeIcon" onClick={this.handleClick.bind(this)} size={60}/>
+               <h3 className="exploreHeading"><IoAndroidGlobe className="globeIcon" onClick={this.handleClick.bind(this)} size={60}/>
                     Click the globe to explore a new city!
                 </h3>
                 <div className="row">

@@ -14,13 +14,14 @@ class Weather extends React.Component{
 
     render(){
         if(this.props.weather){
+            console.log(this.props.weather)
             const { weather } = this.props
             const cityWeather = weather.weather[0].main
             const cityTemp = weather.main.temp
             const cityHumidity = weather.main.humidity
             const icon = weather.weather[0].icon
             const weatherIconSrc = `http://openweathermap.org/img/w/${icon}.png`
-            if(cityWeather !== "" || cityTemp !== "" || cityHumidity !== "" ){
+            if(weather !== undefined){
                 return(
                     <div className="Weather">
                         <h3>Current Weather:</h3>
