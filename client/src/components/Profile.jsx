@@ -1,5 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient'
+import '../styles/Profile.css'
 
 class Profile extends React.Component {
     state = {
@@ -31,14 +32,12 @@ class Profile extends React.Component {
 		return (
             <div className='Profile'>
                     <div className='EditProfile'>
-                        <div className='row'>
-                            <div className='column column-33 column-offset-33'>
-                                <h2>Edit Username</h2>
-                                <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-                                    <input type="text" placeholder={this.props.user.name} name="name" value={name} />
-                                    <button>Submit</button>
-                                </form>
-                            </div>
+                        <div className='profileContainer'>
+                            <h2>Edit Username</h2>
+                            <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
+                                <input type="text" placeholder={this.props.user.name} name="name" value={name} />
+                                <button>Submit</button>
+                            </form>
                         </div>
                     </div>
             </div>

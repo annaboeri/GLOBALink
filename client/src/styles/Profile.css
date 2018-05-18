@@ -1,0 +1,31 @@
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileContainer h2 {
+    width: 40%;
+    margin: 10px auto;
+
+}
+
+.profileContainer form {
+    width: 40%;
+    margin: 10px auto;
+}
+
+@media screen and (max-width: 549px) {
+    .profileContainer h2 {
+        width: 80%;
+    }
+    
+    .profileContainer form {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .profileContainer h2 {
+        font-size: 30px;
+    }
+}
