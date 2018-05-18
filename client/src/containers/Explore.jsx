@@ -9,7 +9,6 @@ import TwitterFeed from '../containers/TwitterFeed'
 import Weather from '../containers/Weather'
 import GooglePlaces from '../containers/GooglePlaces'
 import CountryInfo from '../containers/CountryInfo'
-import {IoAndroidGlobe} from 'react-icons/lib/io'
 
 
 class Explore extends React.Component {
@@ -27,16 +26,17 @@ class Explore extends React.Component {
                         Click the globe to explore a new city!
                     </h3>
                     <div className="gifContainer">
-                        <img onClick={this.handleClick.bind(this)} src="https://i.gifer.com/W31X.gif" className="globeGiphy"/>
+                        <img onClick={this.handleClick.bind(this)} src="https://i.gifer.com/W31X.gif" className="globeGiphy" alt="globe icon"/>
                     </div>
                 </div>
             )
         } else {
             return (
                 <div className='ExploreContainer'>
-                <h3 className="exploreHeading"><IoAndroidGlobe className="globeIcon" onClick={this.handleClick.bind(this)} size={60}/>
-                        Click the globe to explore a new city!
-                    </h3>
+                    <div class="h3Container">
+                        <img onClick={this.handleClick.bind(this)} src="https://i.gifer.com/W31X.gif" className="globeIcon" alt="globe icon"/>
+                        <h3 className="exploreHeading">Click the globe to explore a new city!</h3>
+                    </div>
                     <div className="row">
                         <div className="column">
                             <div id='MapContainer'>

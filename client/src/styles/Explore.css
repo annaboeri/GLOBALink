@@ -1,11 +1,14 @@
-.exploreHeading  {
+.h3Container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+
+.exploreHeading {
     font-size: 1.5em;
 }
 
-.gifContainer {
-    display: flex;
-
-}
 
 .globeGiphy {
     height: 50%;
@@ -14,7 +17,19 @@
     border-radius: 50%; 
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
-    
+}
+
+.globeIcon {
+    display: inline;
+    border-radius: 50%; 
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    height: 70px;
+    width: 70px;
+}
+
+.globeIcon:hover {
+    background-color: rgba(87, 188, 144, 0.3);
 }
 
 #MapContainer{
