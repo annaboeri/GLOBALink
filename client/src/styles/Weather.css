@@ -16,3 +16,20 @@
 .Weather img {
     padding-top: 25px;
 }
+
+@media screen and (min-width: 550px) and (max-width: 908px) {
+    .Weather {
+        height: 318px;
+        padding: 20px 5px;
+        margin-top: 20px;
+    }
+
+    .weatherInfo {
+        font-size: 17px;
+    }
+
+    .Weather img {
+        padding-top: 5px;
+    }
+
+}
