@@ -14,6 +14,16 @@
     .GooglePlaces {
         margin-top: 0;
     }
+
+    .GooglePlaces {
+        padding: 20px 25px;
+    }
+
+    .placeName {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+    }
 }
 
 .GooglePlaces h3 {
